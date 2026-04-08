@@ -1,4 +1,5 @@
 
+<link rel="icon" type="image/png" href="https://res.cloudinary.com/da5fz9dxk/image/upload/v1775621760/Favicon_kutstc.png">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Ogg:wght@400;700&family=Inter:wght@300;400;900&display=swap');
   *{margin:0;padding:0;box-sizing:border-box;}
@@ -110,6 +111,12 @@
   .project-card:hover .project-hover-title{opacity:1;transform:translateY(0);}
   .loading-thumb{width:100%;aspect-ratio:21/9;background:#151515;display:flex;align-items:center;justify-content:center;}
   .loading-thumb span{font-size:11px;color:rgba(240,242,245,0.22);letter-spacing:0.1em;}
+
+  /* SEE MORE */
+  .see-more-wrap{grid-column:1/-1;display:flex;justify-content:center;padding:40px 0 8px;}
+  .see-more-btn{background:none;border:1px solid rgba(240,242,245,0.2);color:rgba(240,242,245,0.7);font-family:'Inter',sans-serif;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;padding:12px 40px;cursor:pointer;transition:all 0.25s;}
+  .see-more-btn:hover{border-color:rgba(240,242,245,0.5);color:var(--white);}
+  .project-card.hidden{display:none;}
 
   /* CONTACT */
   .contact-outer{display:flex;justify-content:center;align-items:flex-start;padding-top:20px;}
@@ -262,16 +269,16 @@
       </div>
       <div class="gallery-wrap">
         <div class="gallery-scroll" id="gallery-scroll">
-          <div class="gallery-thumb" onclick="openImgLightbox(0)"><img src="https://i.ibb.co/C574D1tK/3.jpg" alt="1"></div>
-          <div class="gallery-thumb" onclick="openImgLightbox(1)"><img src="https://i.ibb.co/VYCFmYYQ/2.jpg" alt="2"></div>
-          <div class="gallery-thumb" onclick="openImgLightbox(2)"><img src="https://i.ibb.co/9CgPQDY/10.jpg" alt="3"></div>
-          <div class="gallery-thumb" onclick="openImgLightbox(3)"><img src="https://i.ibb.co/kF2pcQK/9.jpg" alt="4"></div>
-          <div class="gallery-thumb" onclick="openImgLightbox(4)"><img src="https://i.ibb.co/zVttsNwT/8.jpg" alt="5"></div>
-          <div class="gallery-thumb" onclick="openImgLightbox(5)"><img src="https://i.ibb.co/Mxgs13L4/7.jpg" alt="6"></div>
-          <div class="gallery-thumb" onclick="openImgLightbox(6)"><img src="https://i.ibb.co/wZg7dVKy/6.jpg" alt="7"></div>
-          <div class="gallery-thumb" onclick="openImgLightbox(7)"><img src="https://i.ibb.co/CpTGr2Vh/5.jpg" alt="8"></div>
-          <div class="gallery-thumb" onclick="openImgLightbox(8)"><img src="https://i.ibb.co/Q7NDcvM0/4.jpg" alt="9"></div>
-          <div class="gallery-thumb" onclick="openImgLightbox(9)"><img src="https://i.ibb.co/N6Ln8Q2y/1.jpg" alt="10"></div>
+          <div class="gallery-thumb" onclick="openImgLightbox(0)"><img src="https://res.cloudinary.com/da5fz9dxk/image/upload/v1775619926/1_scj1by.jpg" alt="1"></div>
+          <div class="gallery-thumb" onclick="openImgLightbox(1)"><img src="https://res.cloudinary.com/da5fz9dxk/image/upload/v1775619315/2_uxigcb.jpg" alt="2"></div>
+          <div class="gallery-thumb" onclick="openImgLightbox(2)"><img src="https://res.cloudinary.com/da5fz9dxk/image/upload/v1775618988/3_xn2uzu.jpg" alt="3"></div>
+          <div class="gallery-thumb" onclick="openImgLightbox(3)"><img src="https://res.cloudinary.com/da5fz9dxk/image/upload/v1775619841/4_or3sdn.jpg" alt="4"></div>
+          <div class="gallery-thumb" onclick="openImgLightbox(4)"><img src="https://res.cloudinary.com/da5fz9dxk/image/upload/v1775619146/5_zptfyy.jpg" alt="5"></div>
+          <div class="gallery-thumb" onclick="openImgLightbox(5)"><img src="https://res.cloudinary.com/da5fz9dxk/image/upload/v1775619203/6_ld0mbu.jpg" alt="6"></div>
+          <div class="gallery-thumb" onclick="openImgLightbox(6)"><img src="https://res.cloudinary.com/da5fz9dxk/image/upload/v1775619072/7_khwg00.jpg" alt="7"></div>
+          <div class="gallery-thumb" onclick="openImgLightbox(7)"><img src="https://res.cloudinary.com/da5fz9dxk/image/upload/v1775620300/8_uvfcnu.jpg" alt="8"></div>
+          <div class="gallery-thumb" onclick="openImgLightbox(8)"><img src="https://res.cloudinary.com/da5fz9dxk/image/upload/v1775620070/9_xmdkmm.jpg" alt="9"></div>
+          <div class="gallery-thumb" onclick="openImgLightbox(9)"><img src="https://res.cloudinary.com/da5fz9dxk/image/upload/v1775619331/10_rvagsc.jpg" alt="10"></div>
         </div>
         <div class="gallery-nav">
           <button class="gallery-nav-btn" onclick="scrollGallery(-1)"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M9 2L4 7L9 12" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
@@ -329,7 +336,7 @@
               <button type="submit" class="contact-send">Send</button>
             </form>
           </div>
-          <div class="contact-item"><div class="contact-lbl">Mail</div><a href="mailto:Dishahisham@gmail.com" class="contact-val">Dishahisham@gmail.com</a></div>
+          <div class="contact-item"><div class="contact-lbl">Mail</div><a href="/cdn-cgi/l/email-protection#37735e445f565f5e445f565a77505a565e5b1954585a" class="contact-val"><span class="__cf_email__" data-cfemail="06426f756e676e6f756e676b46616b676f6a2865696b">[email&#160;protected]</span></a></div>
           <div class="contact-item"><div class="contact-lbl">Phone</div><a href="tel:+0201112277727" class="contact-val">+020 111 227 7727</a></div>
           <div class="contact-item"><div class="contact-lbl">Vimeo</div><a href="https://vimeo.com/Dishahisham" target="_blank" class="contact-val">Vimeo</a></div>
           <div class="contact-item"><div class="contact-lbl">Instagram</div><a href="https://instagram.com/Dishahisham" target="_blank" class="contact-val">Instagram</a></div>
@@ -371,7 +378,7 @@
   </div>
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 /* HOME TYPOGRAPHY */
 function fitHomeSpacing(){
   const nameEl=document.getElementById('hero-name');
@@ -404,11 +411,16 @@ function fitHomeSpacing(){
 
 /* GALLERY */
 const galleryImages=[
-  "https://i.ibb.co/C574D1tK/3.jpg","https://i.ibb.co/VYCFmYYQ/2.jpg",
-  "https://i.ibb.co/9CgPQDY/10.jpg","https://i.ibb.co/kF2pcQK/9.jpg",
-  "https://i.ibb.co/zVttsNwT/8.jpg","https://i.ibb.co/Mxgs13L4/7.jpg",
-  "https://i.ibb.co/wZg7dVKy/6.jpg","https://i.ibb.co/CpTGr2Vh/5.jpg",
-  "https://i.ibb.co/Q7NDcvM0/4.jpg","https://i.ibb.co/N6Ln8Q2y/1.jpg"
+  "https://res.cloudinary.com/da5fz9dxk/image/upload/v1775619926/1_scj1by.jpg",
+  "https://res.cloudinary.com/da5fz9dxk/image/upload/v1775619315/2_uxigcb.jpg",
+  "https://res.cloudinary.com/da5fz9dxk/image/upload/v1775618988/3_xn2uzu.jpg",
+  "https://res.cloudinary.com/da5fz9dxk/image/upload/v1775619841/4_or3sdn.jpg",
+  "https://res.cloudinary.com/da5fz9dxk/image/upload/v1775619146/5_zptfyy.jpg",
+  "https://res.cloudinary.com/da5fz9dxk/image/upload/v1775619203/6_ld0mbu.jpg",
+  "https://res.cloudinary.com/da5fz9dxk/image/upload/v1775619072/7_khwg00.jpg",
+  "https://res.cloudinary.com/da5fz9dxk/image/upload/v1775620300/8_uvfcnu.jpg",
+  "https://res.cloudinary.com/da5fz9dxk/image/upload/v1775620070/9_xmdkmm.jpg",
+  "https://res.cloudinary.com/da5fz9dxk/image/upload/v1775619331/10_rvagsc.jpg"
 ];
 let currentImgIdx=0;
 function openImgLightbox(idx){currentImgIdx=idx;updateImgLightbox();document.getElementById('img-lightbox').classList.add('open');}
@@ -497,12 +509,11 @@ function switchToPage(id){
   window.scrollTo(0,0);
 }
 
-/* PROJECTS — all videos, no limit */
+/* PROJECTS — 12 first, see more button for rest */
 window.projectsLoaded=false;
 async function loadProjects(){
   const grid=document.getElementById('projects-grid');
   try{
-    // Fetch multiple pages to get all videos
     let allVideos=[];
     for(let page=1;page<=5;page++){
       const res=await fetch(`https://vimeo.com/api/v2/dishahisham/videos.json?page=${page}`);
@@ -510,24 +521,37 @@ async function loadProjects(){
       const videos=await res.json();
       if(!videos||videos.length===0)break;
       allVideos=[...allVideos,...videos];
-      if(videos.length<20)break; // last page
+      if(videos.length<20)break;
     }
     if(allVideos.length===0)throw new Error();
     grid.innerHTML='';
-    allVideos.forEach(v=>{
+    allVideos.forEach((v,i)=>{
       const card=document.createElement('div');
-      card.className='project-card';
+      card.className='project-card'+(i>=12?' hidden':'');
       const thumb=v.thumbnail_large||v.thumbnail_medium||'';
       card.innerHTML=`<div class="project-thumb-wrap"><img src="${thumb}" alt="${v.title}" onerror="this.outerHTML='<div class=loading-thumb><span>No Preview</span></div>'"><div class="project-hover-overlay"><div class="project-hover-title">${v.title}</div></div></div>`;
       card.addEventListener('click',()=>openVideo(v.id));
       grid.appendChild(card);
     });
+    if(allVideos.length>12){
+      const wrap=document.createElement('div');
+      wrap.className='see-more-wrap';
+      wrap.id='see-more-wrap';
+      const btn=document.createElement('button');
+      btn.className='see-more-btn';
+      btn.textContent='See More';
+      btn.addEventListener('click',()=>{
+        grid.querySelectorAll('.project-card.hidden').forEach(c=>c.classList.remove('hidden'));
+        wrap.remove();
+      });
+      wrap.appendChild(btn);
+      grid.appendChild(wrap);
+    }
     window.projectsLoaded=true;
   }catch(e){
     grid.innerHTML=`<div style="grid-column:1/-1;text-align:center;padding:60px 0;color:rgba(240,242,245,0.22);font-size:12px;letter-spacing:0.12em;">Connect your Vimeo Access Token to load projects.</div>`;
   }
 }
-
 switchToPage('home');
 setTimeout(fitHomeSpacing,300);
 window.addEventListener('resize',fitHomeSpacing);
