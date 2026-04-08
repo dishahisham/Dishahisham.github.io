@@ -1,4 +1,4 @@
-Put your HTML text here
+
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Ogg:wght@400;700&family=Inter:wght@300;400;900&display=swap');
   *{margin:0;padding:0;box-sizing:border-box;}
@@ -42,13 +42,13 @@ Put your HTML text here
   .thin-divider{height:1px;background:rgba(240,242,245,0.1);margin:48px 0;}
   .section-label{font-size:11px;letter-spacing:0.24em;text-transform:uppercase;color:rgba(240,242,245,0.38);margin-bottom:28px;border-bottom:1px solid rgba(240,242,245,0.08);padding-bottom:12px;}
 
-  /* BIO INTRO ‚Äî image 50% smaller height relative to text col */
+  /* BIO INTRO — image 50% smaller height relative to text col */
   .bio-intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;}
   .bio-text-block{font-family:'Ogg',serif;font-weight:400;font-size:16px;line-height:1.6;color:rgba(240,242,245,0.88);}
   .bio-img-wrap{display:flex;align-items:flex-start;}
   .bio-intro-img{width:100%;max-height:320px;object-fit:contain;object-position:top;display:block;}
 
-  /* FILM ‚Äî no divider above, flows right after intro */
+  /* FILM — no divider above, flows right after intro */
   .production-text{font-family:'Ogg',serif;font-weight:400;font-size:clamp(15px,1.5vw,19px);line-height:1.6;color:var(--white);margin-bottom:28px;}
   .film-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
   .film-card img{width:100%;aspect-ratio:2/3;object-fit:cover;display:block;transition:filter 0.3s;}
@@ -86,12 +86,12 @@ Put your HTML text here
   .award-card img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;}
   .award-caption{font-size:10px;color:rgba(240,242,245,0.38);letter-spacing:0.06em;margin-top:8px;line-height:1.5;}
 
-  /* AWARD LIGHTBOX ‚Äî image full no crop */
+  /* AWARD LIGHTBOX — image full no crop */
   .award-lightbox{position:fixed;inset:0;background:rgba(0,0,0,0.88);display:flex;align-items:center;justify-content:center;z-index:999;opacity:0;pointer-events:none;transition:opacity 0.25s;}
   .award-lightbox.open{opacity:1;pointer-events:all;}
   .award-lb-inner{background:#141414;border:0.5px solid rgba(240,242,245,0.1);max-width:480px;width:92%;position:relative;overflow:hidden;}
   .award-lb-close{position:absolute;top:12px;right:14px;font-size:22px;cursor:pointer;color:rgba(240,242,245,0.4);background:none;border:none;z-index:2;}
-  /* Image contains ‚Äî no crop */
+  /* Image contains — no crop */
   .award-lb-img-wrap{width:100%;background:#0d0d0d;display:flex;align-items:center;justify-content:center;max-height:220px;overflow:hidden;}
   .award-lb-img-wrap img{width:100%;height:auto;max-height:220px;object-fit:contain;display:block;}
   .award-lb-text{padding:20px 24px;}
@@ -201,7 +201,7 @@ Put your HTML text here
   </nav>
 
   <div class="mobile-menu" id="mobile-menu">
-    <button class="mobile-menu-close" onclick="closeMobileMenu()">√ó</button>
+    <button class="mobile-menu-close" onclick="closeMobileMenu()">×</button>
     <a onclick="showPage('home');closeMobileMenu()">Home</a>
     <a onclick="showPage('bio');closeMobileMenu()">About</a>
     <a onclick="showPage('projects');closeMobileMenu()">Projects</a>
@@ -222,20 +222,20 @@ Put your HTML text here
 
     <!-- Intro: no divider before film section -->
     <div class="bio-intro-grid" style="margin-bottom:48px;">
-      <div class="bio-text-block">Moustafa Hisham (Disha) is an Egyptian cinematographer and director. Beginning in photography at the age of 16, his practice expanded into illustration, graphic design, and 2D motion graphics ‚Äî forming a layered visual perspective. This foundation led to a focus on cinema, developed through formal education and on-set experience. Work spans TV, documentaries, and commercials, with an emphasis on meaningful, visually expressive storytelling.</div>
+      <div class="bio-text-block">Moustafa Hisham (Disha) is an Egyptian cinematographer and director. Beginning in photography at the age of 16, his practice expanded into illustration, graphic design, and 2D motion graphics — forming a layered visual perspective. This foundation led to a focus on cinema, developed through formal education and on-set experience. Work spans TV, documentaries, and commercials, with an emphasis on meaningful, visually expressive storytelling.</div>
       <div class="bio-img-wrap">
         <img src="https://i.ibb.co/tgKz0Qn/UAE-x-CHATGPT-Film-Grain-PP.jpg" alt="Disha Hisham" class="bio-intro-img" onerror="this.style.background='#1a1a1a'">
       </div>
     </div>
 
-    <!-- Film involvement ‚Äî no divider above -->
+    <!-- Film involvement — no divider above -->
     <div>
-      <p class="production-text">He has been involved in major productions within the cinematography department, including Tayea', Blue Elephant II, El Aref, and El Sett ‚Äî working alongside leading cinematographers and directors, and shaping a strong visual foundation.</p>
+      <p class="production-text">He has been involved in major productions within the cinematography department, including Tayea', Blue Elephant II, El Aref, and El Sett — working alongside leading cinematographers and directors, and shaping a strong visual foundation.</p>
       <div class="film-cards">
         <div class="film-card"><img src="https://i.ibb.co/YK6rNWQ/Elsett.jpg" alt="El Sett" onerror="this.style.background='#1a1a1a'"><div class="film-card-caption-title">El Sett</div><div class="film-card-caption-role">Camera Operator</div></div>
         <div class="film-card"><img src="https://i.ibb.co/8LQTvFFG/Feel-azra2.jpg" alt="Blue Elephant II" onerror="this.style.background='#1a1a1a'"><div class="film-card-caption-title">Blue Elephant II</div><div class="film-card-caption-role">Focus Puller</div></div>
         <div class="film-card"><img src="https://i.ibb.co/jkW52wyk/el-3aref.jpg" alt="El Aref" onerror="this.style.background='#1a1a1a'"><div class="film-card-caption-title">El Aref</div><div class="film-card-caption-role">Focus Puller</div></div>
-        <div class="film-card"><img src="https://i.ibb.co/xKTfrRh9/Taye3.png" alt="Tayea" onerror="this.style.background='#1a1a1a'"><div class="film-card-caption-title">Tayea'</div><div class="film-card-caption-role">2nd AC ‚Äî Lighting Script</div></div>
+        <div class="film-card"><img src="https://i.ibb.co/xKTfrRh9/Taye3.png" alt="Tayea" onerror="this.style.background='#1a1a1a'"><div class="film-card-caption-title">Tayea'</div><div class="film-card-caption-role">2nd AC — Lighting Script</div></div>
       </div>
       <div class="thin-divider"></div>
       <div class="bts-duo">
@@ -255,10 +255,10 @@ Put your HTML text here
     <!-- FROM RECCE TO FRAME -->
     <div>
       <div class="section-label">From Recce to Frame</div>
-      <p class="recce-intro">With a strong visual foundation, recce pictures become the starting point of the preparation process ‚Äî where observations evolve through hand-drawn lighting plans and 2D &amp; 3D illustrations into practical cinematic frames.</p>
+      <p class="recce-intro">With a strong visual foundation, recce pictures become the starting point of the preparation process — where observations evolve through hand-drawn lighting plans and 2D &amp; 3D illustrations into practical cinematic frames.</p>
       <img src="https://res.cloudinary.com/da5fz9dxk/image/upload/v1775585119/Testmonial_nbkp1u.jpg" alt="Prince El Kebda" class="recce-full-img" onerror="this.style.background='#1a1a1a';this.style.minHeight='200px'">
       <div class="recce-full-caption">
-        <a href="https://vimeo.com/1143477550?share=copy&fl=sv&fe=ci" target="_blank">Prince El Kebda</a> ‚Äî Cinematography by Disha Hisham &nbsp;|&nbsp; Directed by Youssef Gallab
+        <a href="https://vimeo.com/1143477550?share=copy&fl=sv&fe=ci" target="_blank">Prince El Kebda</a> — Cinematography by Disha Hisham &nbsp;|&nbsp; Directed by Youssef Gallab
       </div>
       <div class="gallery-wrap">
         <div class="gallery-scroll" id="gallery-scroll">
@@ -285,23 +285,23 @@ Put your HTML text here
     <!-- AWARDS -->
     <div style="margin-bottom:48px;">
       <div class="section-label">Features & Awards</div>
-      <p style="font-size:13px;line-height:1.85;color:rgba(240,242,245,0.48);max-width:700px;margin-bottom:28px;">His work has been featured on platforms such as Vimeo Staff Picks, Directors Library, and Instagram's Blog of the Week, as well as in major international festivals including Cairo International Film Festival, Shorts Shorts Film Festival &amp; Asia, Kaohsiung Film Festival, and Malm√∂ Arab Film Festival.</p>
+      <p style="font-size:13px;line-height:1.85;color:rgba(240,242,245,0.48);max-width:700px;margin-bottom:28px;">His work has been featured on platforms such as Vimeo Staff Picks, Directors Library, and Instagram's Blog of the Week, as well as in major international festivals including Cairo International Film Festival, Shorts Shorts Film Festival &amp; Asia, Kaohsiung Film Festival, and Malmö Arab Film Festival.</p>
       <div class="awards-grid">
         <div class="award-card" onclick="openAward('staffpicks')">
           <img src="https://i.ibb.co/k6QtrWxk/Staff-Pick-ii.jpg" alt="Staff Pick" onerror="this.style.background='#1a1a1a';this.style.minHeight='100px'">
-          <div class="award-caption">"Transit" ‚Äî Vimeo Staff Pick selection</div>
+          <div class="award-caption">"Transit" — Vimeo Staff Pick selection</div>
         </div>
         <div class="award-card" onclick="openAward('shnit')">
           <img src="https://i.ibb.co/7x2QzPCp/Shnit-CS.jpg" alt="Shnit" onerror="this.style.background='#1a1a1a';this.style.minHeight='100px'">
-          <div class="award-caption">"Not Geo" ‚Äî Shnit Jury Award</div>
+          <div class="award-caption">"Not Geo" — Shnit Jury Award</div>
         </div>
         <div class="award-card" onclick="openAward('manassat')">
           <img src="https://i.ibb.co/8DVvM42M/Full-Size-Render-VSCO-2.jpg" alt="Manassat" onerror="this.style.background='#1a1a1a';this.style.minHeight='100px'">
-          <div class="award-caption">Manassat Festival 2024 ‚Äî Best Cinematography &amp; Best Documentary Audience Award</div>
+          <div class="award-caption">Manassat Festival 2024 — Best Cinematography &amp; Best Documentary Audience Award</div>
         </div>
         <div class="award-card" onclick="openAward('abujudy')">
           <img src="https://i.ibb.co/mFR8ty3Q/540449799-18371168824150561-7584855386077437055-n.png" alt="Abu Judy" onerror="this.style.background='#1a1a1a';this.style.minHeight='100px'">
-          <div class="award-caption">Abu Judy ‚Äî +10 International Film Festivals</div>
+          <div class="award-caption">Abu Judy — +10 International Film Festivals</div>
         </div>
       </div>
     </div>
@@ -344,7 +344,7 @@ Put your HTML text here
   <!-- Image Lightbox -->
   <div class="img-lightbox" id="img-lightbox" onclick="if(event.target===this)closeImgLightbox()">
     <div class="img-lb-stage">
-      <button class="img-lb-close" onclick="closeImgLightbox()">√ó</button>
+      <button class="img-lb-close" onclick="closeImgLightbox()">×</button>
       <button class="img-lb-prev" onclick="shiftImg(-1)"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M9 2L4 7L9 12" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
       <img id="img-lb-img" src="" alt="" onclick="shiftImg(1)" style="cursor:pointer;">
       <button class="img-lb-next" onclick="shiftImg(1)"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M5 2L10 7L5 12" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
@@ -355,7 +355,7 @@ Put your HTML text here
   <!-- Award Lightbox -->
   <div class="award-lightbox" id="award-lightbox" onclick="if(event.target===this)closeAwardBtn()">
     <div class="award-lb-inner">
-      <button class="award-lb-close" onclick="closeAwardBtn()">√ó</button>
+      <button class="award-lb-close" onclick="closeAwardBtn()">×</button>
       <div class="award-lb-img-wrap">
         <img id="award-lb-img" src="" alt="">
       </div>
@@ -367,7 +367,7 @@ Put your HTML text here
   </div>
 
   <div class="video-lightbox" id="video-lightbox" onclick="if(event.target===this)closeVideoBtn()">
-    <div class="video-lightbox-inner"><button class="video-lightbox-close" onclick="closeVideoBtn()">√ó</button><iframe id="vl-iframe" src="" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+    <div class="video-lightbox-inner"><button class="video-lightbox-close" onclick="closeVideoBtn()">×</button><iframe id="vl-iframe" src="" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
   </div>
 </div>
 
@@ -431,10 +431,10 @@ function scrollGallery(dir){document.getElementById('gallery-scroll').scrollBy({
 
 /* AWARDS */
 const awardData={
-  staffpicks:{img:'https://i.ibb.co/k6QtrWxk/Staff-Pick-ii.jpg',title:'"Transit" ‚Äî Vimeo Staff Pick',body:'Selected by Vimeo\'s editorial team as a Staff Pick ‚Äî recognizing outstanding cinematography and visual storytelling.'},
-  shnit:{img:'https://i.ibb.co/7x2QzPCp/Shnit-CS.jpg',title:'"Not Geo" ‚Äî Shnit Jury Award',body:'Jury Award at the Shnit International Shortfilmfestival, one of the world\'s leading short film platforms.'},
+  staffpicks:{img:'https://i.ibb.co/k6QtrWxk/Staff-Pick-ii.jpg',title:'"Transit" — Vimeo Staff Pick',body:'Selected by Vimeo\'s editorial team as a Staff Pick — recognizing outstanding cinematography and visual storytelling.'},
+  shnit:{img:'https://i.ibb.co/7x2QzPCp/Shnit-CS.jpg',title:'"Not Geo" — Shnit Jury Award',body:'Jury Award at the Shnit International Shortfilmfestival, one of the world\'s leading short film platforms.'},
   manassat:{img:'https://i.ibb.co/8DVvM42M/Full-Size-Render-VSCO-2.jpg',title:'Manassat Festival 2024',body:'Best Cinematography & Best Documentary Audience Award at Manassat Festival 2024.'},
-  abujudy:{img:'https://i.ibb.co/mFR8ty3Q/540449799-18371168824150561-7584855386077437055-n.png',title:'Abu Judy ‚Äî Film Festivals',body:'Abu Judy short film selected for over 10 international film festivals worldwide.'}
+  abujudy:{img:'https://i.ibb.co/mFR8ty3Q/540449799-18371168824150561-7584855386077437055-n.png',title:'Abu Judy — Film Festivals',body:'Abu Judy short film selected for over 10 international film festivals worldwide.'}
 };
 function openAward(key){
   const d=awardData[key];
@@ -497,7 +497,7 @@ function switchToPage(id){
   window.scrollTo(0,0);
 }
 
-/* PROJECTS ‚Äî all videos, no limit */
+/* PROJECTS — all videos, no limit */
 window.projectsLoaded=false;
 async function loadProjects(){
   const grid=document.getElementById('projects-grid');
@@ -532,4 +532,3 @@ switchToPage('home');
 setTimeout(fitHomeSpacing,300);
 window.addEventListener('resize',fitHomeSpacing);
 </script>
-
