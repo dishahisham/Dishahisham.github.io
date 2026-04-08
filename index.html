@@ -3,7 +3,8 @@
   @import url('https://fonts.googleapis.com/css2?family=Ogg:wght@400;700&family=Inter:wght@300;400;900&display=swap');
   *{margin:0;padding:0;box-sizing:border-box;}
   :root{--white:#F0F2F5;--black:#0B0B0B;}
-  #app{font-family:'Inter',sans-serif;background:var(--black);color:var(--white);min-height:600px;position:relative;overflow-x:hidden;}
+  html,body{background:var(--black);}
+  #app{font-family:'Inter',sans-serif;background:var(--black);color:var(--white);min-height:100vh;position:relative;overflow-x:hidden;}
 
   nav{position:absolute;top:0;left:0;right:0;z-index:100;display:flex;flex-direction:column;}
   nav.fixed{position:fixed;background:rgba(11,11,11,0.93);backdrop-filter:blur(8px);}
@@ -26,7 +27,7 @@
   .mobile-menu a{font-family:'Ogg',serif;font-size:28px;color:var(--white);text-decoration:none;padding:18px;letter-spacing:0.06em;cursor:pointer;}
   .mobile-menu-close{position:absolute;top:24px;right:24px;background:none;border:none;color:var(--white);font-size:30px;cursor:pointer;font-weight:300;}
 
-  .page{display:none;min-height:600px;}
+  .page{display:none;min-height:100vh;background:var(--black);}
   .page.active{display:block;}
 
   #home{position:relative;height:100svh;max-height:700px;min-height:480px;overflow:hidden;background:#000;cursor:pointer;}
@@ -39,16 +40,15 @@
 
   .inner-page{background:var(--black);padding:90px 48px 80px;}
   .thin-divider{height:1px;background:rgba(240,242,245,0.1);margin:48px 0;}
-
-  /* Section label — slightly bigger than before */
   .section-label{font-size:11px;letter-spacing:0.24em;text-transform:uppercase;color:rgba(240,242,245,0.38);margin-bottom:28px;border-bottom:1px solid rgba(240,242,245,0.08);padding-bottom:12px;}
 
-  /* BIO INTRO */
+  /* BIO INTRO ‚Äî image 50% smaller height relative to text col */
   .bio-intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;}
   .bio-text-block{font-family:'Ogg',serif;font-weight:400;font-size:16px;line-height:1.6;color:rgba(240,242,245,0.88);}
-  .bio-intro-img{width:100%;object-fit:cover;display:block;}
+  .bio-img-wrap{display:flex;align-items:flex-start;}
+  .bio-intro-img{width:100%;max-height:320px;object-fit:cover;object-position:top;display:block;}
 
-  /* FILM */
+  /* FILM ‚Äî no divider above, flows right after intro */
   .production-text{font-family:'Ogg',serif;font-weight:400;font-size:clamp(15px,1.5vw,19px);line-height:1.6;color:var(--white);margin-bottom:28px;}
   .film-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
   .film-card img{width:100%;aspect-ratio:2/3;object-fit:cover;display:block;transition:filter 0.3s;}
@@ -56,25 +56,21 @@
   .film-card-caption-title{font-family:'Ogg',serif;font-size:12px;color:rgba(240,242,245,0.85);margin-top:9px;}
   .film-card-caption-role{font-family:'Inter',sans-serif;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(240,242,245,0.38);margin-top:3px;}
 
-  /* BTS DUO */
   .bts-duo{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
   .bts-item{display:flex;flex-direction:column;}
   .bts-img{width:100%;object-fit:contain;display:block;background:#0f0f0f;}
   .bts-caption{font-size:10px;color:rgba(240,242,245,0.28);letter-spacing:0.06em;margin-top:10px;line-height:1.6;}
 
-  /* RECCE */
   .recce-intro{font-family:'Ogg',serif;font-size:clamp(14px,1.4vw,17px);line-height:1.65;color:rgba(240,242,245,0.78);margin-bottom:24px;}
   .recce-full-img{width:100%;object-fit:contain;display:block;background:#0a0a0a;margin-bottom:10px;}
   .recce-full-caption{font-size:10px;color:rgba(240,242,245,0.28);letter-spacing:0.06em;line-height:1.6;margin-bottom:28px;}
   .recce-full-caption a{color:rgba(240,242,245,0.55);text-decoration:underline;text-underline-offset:3px;}
   .recce-full-caption a:hover{color:var(--white);}
 
-  /* GALLERY */
   .gallery-wrap{position:relative;}
   .gallery-scroll{display:flex;gap:10px;overflow-x:auto;scroll-behavior:smooth;padding-bottom:6px;cursor:grab;align-items:stretch;}
   .gallery-scroll:active{cursor:grabbing;}
   .gallery-scroll::-webkit-scrollbar{height:2px;}
-  .gallery-scroll::-webkit-scrollbar-track{background:rgba(240,242,245,0.04);}
   .gallery-scroll::-webkit-scrollbar-thumb{background:rgba(240,242,245,0.18);border-radius:2px;}
   .gallery-thumb{flex:0 0 auto;height:200px;cursor:pointer;transition:opacity 0.25s;overflow:hidden;}
   .gallery-thumb:hover{opacity:0.8;}
@@ -83,34 +79,24 @@
   .gallery-nav-btn{width:34px;height:34px;border:1px solid rgba(240,242,245,0.2);background:none;color:var(--white);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s;}
   .gallery-nav-btn:hover{background:rgba(240,242,245,0.08);}
 
-  /* AWARDS — photo cards */
+  /* AWARDS */
   .awards-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
   .award-card{cursor:pointer;transition:opacity 0.2s;}
   .award-card:hover{opacity:0.8;}
   .award-card img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;}
   .award-caption{font-size:10px;color:rgba(240,242,245,0.38);letter-spacing:0.06em;margin-top:8px;line-height:1.5;}
 
-  /* AWARD LIGHTBOX — with image + text, compact */
-  .award-lightbox{position:fixed;inset:0;background:rgba(0,0,0,0.85);display:flex;align-items:center;justify-content:center;z-index:999;opacity:0;pointer-events:none;transition:opacity 0.25s;}
+  /* AWARD LIGHTBOX ‚Äî image full no crop */
+  .award-lightbox{position:fixed;inset:0;background:rgba(0,0,0,0.88);display:flex;align-items:center;justify-content:center;z-index:999;opacity:0;pointer-events:none;transition:opacity 0.25s;}
   .award-lightbox.open{opacity:1;pointer-events:all;}
-  .award-lb-inner{background:#141414;border:0.5px solid rgba(240,242,245,0.1);max-width:520px;width:92%;position:relative;overflow:hidden;}
-  .award-lb-close{position:absolute;top:14px;right:16px;font-size:22px;cursor:pointer;color:rgba(240,242,245,0.4);background:none;border:none;z-index:2;}
-  .award-lb-img{width:100%;max-height:240px;object-fit:cover;display:block;}
-  .award-lb-text{padding:24px 28px;}
-  .award-lb-title{font-family:'Ogg',serif;font-size:18px;color:var(--white);margin-bottom:8px;}
-  .award-lb-body{font-size:13px;line-height:1.7;color:rgba(240,242,245,0.55);}
-
-  /* IMG LIGHTBOX */
-  .img-lightbox{position:fixed;inset:0;background:rgba(0,0,0,0.97);display:flex;align-items:center;justify-content:center;z-index:1000;opacity:0;pointer-events:none;transition:opacity 0.25s;}
-  .img-lightbox.open{opacity:1;pointer-events:all;}
-  .img-lb-stage{width:800px;max-width:92vw;position:relative;display:flex;align-items:center;justify-content:center;}
-  .img-lb-stage img{width:100%;height:auto;display:block;object-fit:contain;cursor:pointer;max-height:82vh;}
-  .img-lb-close{position:absolute;top:-44px;right:0;font-size:28px;color:rgba(240,242,245,0.55);cursor:pointer;background:none;border:none;font-weight:300;}
-  .img-lb-prev,.img-lb-next{position:absolute;top:50%;transform:translateY(-50%);background:none;border:1px solid rgba(240,242,245,0.2);color:var(--white);width:38px;height:38px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background 0.2s;z-index:2;}
-  .img-lb-prev{left:-54px;}
-  .img-lb-next{right:-54px;}
-  .img-lb-prev:hover,.img-lb-next:hover{background:rgba(240,242,245,0.1);}
-  .img-lb-counter{position:absolute;bottom:-30px;left:50%;transform:translateX(-50%);font-size:11px;color:rgba(240,242,245,0.3);letter-spacing:0.12em;white-space:nowrap;}
+  .award-lb-inner{background:#141414;border:0.5px solid rgba(240,242,245,0.1);max-width:480px;width:92%;position:relative;overflow:hidden;}
+  .award-lb-close{position:absolute;top:12px;right:14px;font-size:22px;cursor:pointer;color:rgba(240,242,245,0.4);background:none;border:none;z-index:2;}
+  /* Image contains ‚Äî no crop */
+  .award-lb-img-wrap{width:100%;background:#0d0d0d;display:flex;align-items:center;justify-content:center;max-height:220px;overflow:hidden;}
+  .award-lb-img-wrap img{width:100%;height:auto;max-height:220px;object-fit:contain;display:block;}
+  .award-lb-text{padding:20px 24px;}
+  .award-lb-title{font-family:'Ogg',serif;font-size:17px;color:var(--white);margin-bottom:7px;}
+  .award-lb-body{font-size:12px;line-height:1.7;color:rgba(240,242,245,0.52);}
 
   /* PROJECTS */
   .projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
@@ -128,10 +114,7 @@
   /* CONTACT */
   .contact-outer{display:flex;justify-content:center;align-items:flex-start;padding-top:20px;}
   .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;width:100%;max-width:900px;}
-  .contact-left{}
   .contact-heading{font-family:'Ogg',serif;font-size:clamp(36px,5vw,64px);color:var(--white);line-height:1.05;margin-bottom:32px;}
-
-  /* Message form — bordered box first */
   .contact-form-box{border:1px solid rgba(240,242,245,0.18);padding:24px;margin-bottom:28px;}
   .contact-form-label{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(240,242,245,0.28);margin-bottom:16px;display:block;}
   .contact-form{display:flex;flex-direction:column;gap:12px;}
@@ -141,19 +124,26 @@
   .contact-textarea{background:transparent;border:none;border-bottom:1px solid rgba(240,242,245,0.12);color:var(--white);font-family:'Inter',sans-serif;font-size:13px;font-weight:300;padding:10px 0;outline:none;width:100%;resize:none;min-height:72px;transition:border-color 0.2s;}
   .contact-textarea::placeholder{color:rgba(240,242,245,0.22);}
   .contact-textarea:focus{border-bottom-color:rgba(240,242,245,0.45);}
-  .contact-send{margin-top:8px;align-self:flex-start;background:none;border:1px solid rgba(240,242,245,0.22);color:var(--white);font-family:'Inter',sans-serif;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;padding:9px 26px;cursor:pointer;transition:background 0.2s,border-color 0.2s;}
-  .contact-send:hover{background:rgba(240,242,245,0.06);border-color:rgba(240,242,245,0.5);}
-  .contact-send-confirm{font-size:11px;color:rgba(240,242,245,0.42);letter-spacing:0.1em;margin-top:10px;}
-
-  /* Contact info below the box */
-  .contact-info{}
+  .contact-send{margin-top:8px;align-self:flex-start;background:none;border:1px solid rgba(240,242,245,0.22);color:var(--white);font-family:'Inter',sans-serif;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;padding:9px 26px;cursor:pointer;transition:background 0.2s;}
+  .contact-send:hover{background:rgba(240,242,245,0.06);}
   .contact-item{margin-bottom:16px;}
   .contact-lbl{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(240,242,245,0.28);margin-bottom:3px;}
   .contact-val{font-size:13px;color:var(--white);text-decoration:none;display:block;transition:opacity 0.2s;}
   .contact-val:hover{opacity:0.45;}
   .contact-img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;}
 
-  /* VIDEO LIGHTBOX */
+  /* IMG LIGHTBOX */
+  .img-lightbox{position:fixed;inset:0;background:rgba(0,0,0,0.97);display:flex;align-items:center;justify-content:center;z-index:1000;opacity:0;pointer-events:none;transition:opacity 0.25s;}
+  .img-lightbox.open{opacity:1;pointer-events:all;}
+  .img-lb-stage{width:800px;max-width:92vw;position:relative;display:flex;align-items:center;justify-content:center;}
+  .img-lb-stage img{width:100%;height:auto;display:block;object-fit:contain;cursor:pointer;max-height:82vh;}
+  .img-lb-close{position:absolute;top:-44px;right:0;font-size:28px;color:rgba(240,242,245,0.55);cursor:pointer;background:none;border:none;font-weight:300;}
+  .img-lb-prev,.img-lb-next{position:absolute;top:50%;transform:translateY(-50%);background:none;border:1px solid rgba(240,242,245,0.2);color:var(--white);width:38px;height:38px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background 0.2s;z-index:2;}
+  .img-lb-prev{left:-54px;}
+  .img-lb-next{right:-54px;}
+  .img-lb-prev:hover,.img-lb-next:hover{background:rgba(240,242,245,0.1);}
+  .img-lb-counter{position:absolute;bottom:-30px;left:50%;transform:translateX(-50%);font-size:11px;color:rgba(240,242,245,0.3);letter-spacing:0.12em;white-space:nowrap;}
+
   .video-lightbox{position:fixed;inset:0;background:rgba(0,0,0,0.93);display:flex;align-items:center;justify-content:center;z-index:999;opacity:0;pointer-events:none;transition:opacity 0.25s;}
   .video-lightbox.open{opacity:1;pointer-events:all;}
   .video-lightbox-inner{width:85%;max-width:900px;position:relative;}
@@ -170,7 +160,7 @@
     .inner-page{padding:75px 20px 60px;}
     .thin-divider{margin:32px 0;}
     .bio-intro-grid{grid-template-columns:1fr;gap:20px;}
-    .bio-intro-img{max-height:280px;object-fit:cover;}
+    .bio-intro-img{max-height:220px;}
     .bio-text-block{font-size:14px;}
     .film-cards{grid-template-columns:1fr 1fr;gap:10px;}
     .bts-duo{grid-template-columns:1fr;gap:28px;}
@@ -182,7 +172,7 @@
     .img-lb-prev{left:-4px;}
     .img-lb-next{right:-4px;}
     .img-lb-stage{width:94vw;}
-    .award-lb-img{max-height:180px;}
+    .award-lb-inner{max-width:96vw;}
   }
   @media(max-width:480px){
     .projects-grid{grid-template-columns:1fr;}
@@ -211,7 +201,7 @@
   </nav>
 
   <div class="mobile-menu" id="mobile-menu">
-    <button class="mobile-menu-close" onclick="closeMobileMenu()">×</button>
+    <button class="mobile-menu-close" onclick="closeMobileMenu()">√ó</button>
     <a onclick="showPage('home');closeMobileMenu()">Home</a>
     <a onclick="showPage('bio');closeMobileMenu()">About</a>
     <a onclick="showPage('projects');closeMobileMenu()">Projects</a>
@@ -229,20 +219,23 @@
 
   <!-- ABOUT -->
   <div id="bio" class="page inner-page">
-    <div class="bio-intro-grid">
-      <div class="bio-text-block" id="bio-text-block">Moustafa Hisham (Disha) is an Egyptian cinematographer and director. Beginning in photography at the age of 16, his practice expanded into illustration, graphic design, and 2D motion graphics — forming a layered visual perspective. This foundation led to a focus on cinema, developed through formal education and on-set experience. Work spans TV, documentaries, and commercials, with an emphasis on meaningful, visually expressive storytelling.</div>
-      <img src="https://i.ibb.co/tgKz0Qn/UAE-x-CHATGPT-Film-Grain-PP.jpg" alt="Disha Hisham" class="bio-intro-img" id="bio-img" onerror="this.style.background='#1a1a1a'">
+
+    <!-- Intro: no divider before film section -->
+    <div class="bio-intro-grid" style="margin-bottom:48px;">
+      <div class="bio-text-block">Moustafa Hisham (Disha) is an Egyptian cinematographer and director. Beginning in photography at the age of 16, his practice expanded into illustration, graphic design, and 2D motion graphics ‚Äî forming a layered visual perspective. This foundation led to a focus on cinema, developed through formal education and on-set experience. Work spans TV, documentaries, and commercials, with an emphasis on meaningful, visually expressive storytelling.</div>
+      <div class="bio-img-wrap">
+        <img src="https://i.ibb.co/tgKz0Qn/UAE-x-CHATGPT-Film-Grain-PP.jpg" alt="Disha Hisham" class="bio-intro-img" onerror="this.style.background='#1a1a1a'">
+      </div>
     </div>
 
-    <div class="thin-divider"></div>
-
+    <!-- Film involvement ‚Äî no divider above -->
     <div>
-      <p class="production-text">He has been involved in major productions within the cinematography department, including Tayea', Blue Elephant II, El Aref, and El Sett — working alongside leading cinematographers and directors, and shaping a strong visual foundation.</p>
+      <p class="production-text">He has been involved in major productions within the cinematography department, including Tayea', Blue Elephant II, El Aref, and El Sett ‚Äî working alongside leading cinematographers and directors, and shaping a strong visual foundation.</p>
       <div class="film-cards">
         <div class="film-card"><img src="https://i.ibb.co/YK6rNWQ/Elsett.jpg" alt="El Sett" onerror="this.style.background='#1a1a1a'"><div class="film-card-caption-title">El Sett</div><div class="film-card-caption-role">Camera Operator</div></div>
         <div class="film-card"><img src="https://i.ibb.co/8LQTvFFG/Feel-azra2.jpg" alt="Blue Elephant II" onerror="this.style.background='#1a1a1a'"><div class="film-card-caption-title">Blue Elephant II</div><div class="film-card-caption-role">Focus Puller</div></div>
         <div class="film-card"><img src="https://i.ibb.co/jkW52wyk/el-3aref.jpg" alt="El Aref" onerror="this.style.background='#1a1a1a'"><div class="film-card-caption-title">El Aref</div><div class="film-card-caption-role">Focus Puller</div></div>
-        <div class="film-card"><img src="https://i.ibb.co/xKTfrRh9/Taye3.png" alt="Tayea" onerror="this.style.background='#1a1a1a'"><div class="film-card-caption-title">Tayea'</div><div class="film-card-caption-role">2nd AC — Lighting Script</div></div>
+        <div class="film-card"><img src="https://i.ibb.co/xKTfrRh9/Taye3.png" alt="Tayea" onerror="this.style.background='#1a1a1a'"><div class="film-card-caption-title">Tayea'</div><div class="film-card-caption-role">2nd AC ‚Äî Lighting Script</div></div>
       </div>
       <div class="thin-divider"></div>
       <div class="bts-duo">
@@ -262,10 +255,10 @@
     <!-- FROM RECCE TO FRAME -->
     <div>
       <div class="section-label">From Recce to Frame</div>
-      <p class="recce-intro">With a strong visual foundation, recce pictures become the starting point of the preparation process — where observations evolve through hand-drawn lighting plans and 2D &amp; 3D illustrations into practical cinematic frames.</p>
+      <p class="recce-intro">With a strong visual foundation, recce pictures become the starting point of the preparation process ‚Äî where observations evolve through hand-drawn lighting plans and 2D &amp; 3D illustrations into practical cinematic frames.</p>
       <img src="https://res.cloudinary.com/da5fz9dxk/image/upload/v1775585119/Testmonial_nbkp1u.jpg" alt="Prince El Kebda" class="recce-full-img" onerror="this.style.background='#1a1a1a';this.style.minHeight='200px'">
       <div class="recce-full-caption">
-        <a href="https://vimeo.com/1143477550?share=copy&fl=sv&fe=ci" target="_blank">Prince El Kebda</a> — Cinematography by Disha Hisham &nbsp;|&nbsp; Directed by Youssef Gallab
+        <a href="https://vimeo.com/1143477550?share=copy&fl=sv&fe=ci" target="_blank">Prince El Kebda</a> ‚Äî Cinematography by Disha Hisham &nbsp;|&nbsp; Directed by Youssef Gallab
       </div>
       <div class="gallery-wrap">
         <div class="gallery-scroll" id="gallery-scroll">
@@ -292,43 +285,41 @@
     <!-- AWARDS -->
     <div style="margin-bottom:48px;">
       <div class="section-label">Features & Awards</div>
-      <p style="font-size:13px;line-height:1.85;color:rgba(240,242,245,0.48);max-width:700px;margin-bottom:28px;">His work has been featured on platforms such as Vimeo Staff Picks, Directors Library, and Instagram's Blog of the Week, as well as in major international festivals including Cairo International Film Festival, Shorts Shorts Film Festival &amp; Asia, Kaohsiung Film Festival, and Malmö Arab Film Festival.</p>
+      <p style="font-size:13px;line-height:1.85;color:rgba(240,242,245,0.48);max-width:700px;margin-bottom:28px;">His work has been featured on platforms such as Vimeo Staff Picks, Directors Library, and Instagram's Blog of the Week, as well as in major international festivals including Cairo International Film Festival, Shorts Shorts Film Festival &amp; Asia, Kaohsiung Film Festival, and Malm√∂ Arab Film Festival.</p>
       <div class="awards-grid">
         <div class="award-card" onclick="openAward('staffpicks')">
           <img src="https://i.ibb.co/k6QtrWxk/Staff-Pick-ii.jpg" alt="Staff Pick" onerror="this.style.background='#1a1a1a';this.style.minHeight='100px'">
-          <div class="award-caption">"Transit" — Vimeo Staff Pick selection</div>
+          <div class="award-caption">"Transit" ‚Äî Vimeo Staff Pick selection</div>
         </div>
         <div class="award-card" onclick="openAward('shnit')">
           <img src="https://i.ibb.co/7x2QzPCp/Shnit-CS.jpg" alt="Shnit" onerror="this.style.background='#1a1a1a';this.style.minHeight='100px'">
-          <div class="award-caption">"Not Geo" — Shnit Jury Award</div>
+          <div class="award-caption">"Not Geo" ‚Äî Shnit Jury Award</div>
         </div>
         <div class="award-card" onclick="openAward('manassat')">
           <img src="https://i.ibb.co/8DVvM42M/Full-Size-Render-VSCO-2.jpg" alt="Manassat" onerror="this.style.background='#1a1a1a';this.style.minHeight='100px'">
-          <div class="award-caption">Manassat Festival 2024 — Best Cinematography &amp; Best Documentary Audience Award</div>
+          <div class="award-caption">Manassat Festival 2024 ‚Äî Best Cinematography &amp; Best Documentary Audience Award</div>
         </div>
         <div class="award-card" onclick="openAward('abujudy')">
           <img src="https://i.ibb.co/mFR8ty3Q/540449799-18371168824150561-7584855386077437055-n.png" alt="Abu Judy" onerror="this.style.background='#1a1a1a';this.style.minHeight='100px'">
-          <div class="award-caption">Abu Judy — +10 International Film Festivals</div>
+          <div class="award-caption">Abu Judy ‚Äî +10 International Film Festivals</div>
         </div>
       </div>
     </div>
   </div>
 
   <!-- PROJECTS -->
-  <div id="projects" class="page inner-page" style="padding-top:80px;">
+  <div id="projects" class="page inner-page" style="padding-top:80px;min-height:100vh;">
     <div class="projects-grid" id="projects-grid">
       <div style="grid-column:1/-1;text-align:center;padding:60px 0;color:rgba(240,242,245,0.22);font-size:12px;letter-spacing:0.12em;">Loading projects...</div>
     </div>
   </div>
 
   <!-- CONTACT -->
-  <div id="contact" class="page inner-page">
+  <div id="contact" class="page inner-page" style="min-height:100vh;">
     <div class="contact-outer">
       <div class="contact-grid">
-        <div class="contact-left">
+        <div>
           <div class="contact-heading">Let's work<br>together.</div>
-
-          <!-- Form box — bordered unit -->
           <div class="contact-form-box">
             <span class="contact-form-label">Send a message</span>
             <form class="contact-form" action="https://formspree.io/f/meepnezk" method="POST">
@@ -338,16 +329,11 @@
               <button type="submit" class="contact-send">Send</button>
             </form>
           </div>
-
-          <!-- Contact info below -->
-          <div class="contact-info">
-            <div class="contact-item"><div class="contact-lbl">Mail</div><a href="mailto:Dishahisham@gmail.com" class="contact-val">Dishahisham@gmail.com</a></div>
-            <div class="contact-item"><div class="contact-lbl">Phone</div><a href="tel:+0201112277727" class="contact-val">+020 111 227 7727</a></div>
-            <div class="contact-item"><div class="contact-lbl">Vimeo</div><a href="https://vimeo.com/Dishahisham" target="_blank" class="contact-val">Vimeo</a></div>
-            <div class="contact-item"><div class="contact-lbl">Instagram</div><a href="https://instagram.com/Dishahisham" target="_blank" class="contact-val">Instagram</a></div>
-          </div>
+          <div class="contact-item"><div class="contact-lbl">Mail</div><a href="mailto:Dishahisham@gmail.com" class="contact-val">Dishahisham@gmail.com</a></div>
+          <div class="contact-item"><div class="contact-lbl">Phone</div><a href="tel:+0201112277727" class="contact-val">+020 111 227 7727</a></div>
+          <div class="contact-item"><div class="contact-lbl">Vimeo</div><a href="https://vimeo.com/Dishahisham" target="_blank" class="contact-val">Vimeo</a></div>
+          <div class="contact-item"><div class="contact-lbl">Instagram</div><a href="https://instagram.com/Dishahisham" target="_blank" class="contact-val">Instagram</a></div>
         </div>
-
         <div>
           <img src="https://res.cloudinary.com/da5fz9dxk/image/upload/v1775585075/B_W_ajvdvb.png" alt="Disha Hisham" class="contact-img" onerror="this.style.background='#1a1a1a';this.removeAttribute('src')">
         </div>
@@ -358,7 +344,7 @@
   <!-- Image Lightbox -->
   <div class="img-lightbox" id="img-lightbox" onclick="if(event.target===this)closeImgLightbox()">
     <div class="img-lb-stage">
-      <button class="img-lb-close" onclick="closeImgLightbox()">×</button>
+      <button class="img-lb-close" onclick="closeImgLightbox()">√ó</button>
       <button class="img-lb-prev" onclick="shiftImg(-1)"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M9 2L4 7L9 12" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
       <img id="img-lb-img" src="" alt="" onclick="shiftImg(1)" style="cursor:pointer;">
       <button class="img-lb-next" onclick="shiftImg(1)"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M5 2L10 7L5 12" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
@@ -366,11 +352,13 @@
     </div>
   </div>
 
-  <!-- Award Lightbox — image + text -->
+  <!-- Award Lightbox -->
   <div class="award-lightbox" id="award-lightbox" onclick="if(event.target===this)closeAwardBtn()">
     <div class="award-lb-inner">
-      <button class="award-lb-close" onclick="closeAwardBtn()">×</button>
-      <img id="award-lb-img" src="" alt="" class="award-lb-img">
+      <button class="award-lb-close" onclick="closeAwardBtn()">√ó</button>
+      <div class="award-lb-img-wrap">
+        <img id="award-lb-img" src="" alt="">
+      </div>
       <div class="award-lb-text">
         <div class="award-lb-title" id="lb-title"></div>
         <div class="award-lb-body" id="lb-body"></div>
@@ -379,7 +367,7 @@
   </div>
 
   <div class="video-lightbox" id="video-lightbox" onclick="if(event.target===this)closeVideoBtn()">
-    <div class="video-lightbox-inner"><button class="video-lightbox-close" onclick="closeVideoBtn()">×</button><iframe id="vl-iframe" src="" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+    <div class="video-lightbox-inner"><button class="video-lightbox-close" onclick="closeVideoBtn()">√ó</button><iframe id="vl-iframe" src="" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
   </div>
 </div>
 
@@ -407,22 +395,11 @@ function fitHomeSpacing(){
         const subNatural=subEl.scrollWidth;
         const subChars=subEl.textContent.length;
         if(nameW>subNatural&&subChars>0){
-          const fullSpacing=(nameW-subNatural)/subChars;
-          subEl.style.letterSpacing=Math.max(0,fullSpacing*0.8)+'px';
+          subEl.style.letterSpacing=Math.max(0,(nameW-subNatural)/subChars*0.8)+'px';
         }
       });
     });
   });
-}
-
-/* BIO — fixed readable font size */
-function buildBioText(){
-  const el=document.getElementById('bio-text-block');
-  const img=document.getElementById('bio-img');
-  if(!el||!img)return;
-  // Use a sensible max — don't exceed 18px, but allow shrink on mobile
-  const isMobile=window.innerWidth<768;
-  el.style.fontSize=isMobile?'14px':'16px';
 }
 
 /* GALLERY */
@@ -452,28 +429,12 @@ function scrollGallery(dir){document.getElementById('gallery-scroll').scrollBy({
   el.addEventListener('mousemove',e=>{if(!isDown)return;e.preventDefault();el.scrollLeft=scrollLeft-(e.pageX-el.offsetLeft-startX);});
 })();
 
-/* AWARDS — with image in lightbox */
+/* AWARDS */
 const awardData={
-  staffpicks:{
-    img:'https://i.ibb.co/k6QtrWxk/Staff-Pick-ii.jpg',
-    title:'"Transit" — Vimeo Staff Pick',
-    body:'Selected by Vimeo\'s editorial team as a Staff Pick — recognizing outstanding cinematography and visual storytelling.'
-  },
-  shnit:{
-    img:'https://i.ibb.co/7x2QzPCp/Shnit-CS.jpg',
-    title:'"Not Geo" — Shnit Jury Award',
-    body:'Jury Award at the Shnit International Shortfilmfestival, one of the world\'s leading short film platforms.'
-  },
-  manassat:{
-    img:'https://i.ibb.co/8DVvM42M/Full-Size-Render-VSCO-2.jpg',
-    title:'Manassat Festival 2024',
-    body:'Best Cinematography & Best Documentary Audience Award at Manassat Festival 2024.'
-  },
-  abujudy:{
-    img:'https://i.ibb.co/mFR8ty3Q/540449799-18371168824150561-7584855386077437055-n.png',
-    title:'Abu Judy — Film Festivals',
-    body:'Abu Judy short film selected for over 10 international film festivals worldwide.'
-  }
+  staffpicks:{img:'https://i.ibb.co/k6QtrWxk/Staff-Pick-ii.jpg',title:'"Transit" ‚Äî Vimeo Staff Pick',body:'Selected by Vimeo\'s editorial team as a Staff Pick ‚Äî recognizing outstanding cinematography and visual storytelling.'},
+  shnit:{img:'https://i.ibb.co/7x2QzPCp/Shnit-CS.jpg',title:'"Not Geo" ‚Äî Shnit Jury Award',body:'Jury Award at the Shnit International Shortfilmfestival, one of the world\'s leading short film platforms.'},
+  manassat:{img:'https://i.ibb.co/8DVvM42M/Full-Size-Render-VSCO-2.jpg',title:'Manassat Festival 2024',body:'Best Cinematography & Best Documentary Audience Award at Manassat Festival 2024.'},
+  abujudy:{img:'https://i.ibb.co/mFR8ty3Q/540449799-18371168824150561-7584855386077437055-n.png',title:'Abu Judy ‚Äî Film Festivals',body:'Abu Judy short film selected for over 10 international film festivals worldwide.'}
 };
 function openAward(key){
   const d=awardData[key];
@@ -533,19 +494,27 @@ function switchToPage(id){
   if(isHome){nav.classList.remove('fixed');nav.style.position='absolute';divider.classList.remove('visible');}
   else{nav.classList.add('fixed');nav.style.position='fixed';divider.classList.add('visible');}
   if(id==='projects'&&!window.projectsLoaded)loadProjects();
-  if(id==='bio')setTimeout(buildBioText,60);
+  window.scrollTo(0,0);
 }
 
-/* PROJECTS */
+/* PROJECTS ‚Äî all videos, no limit */
 window.projectsLoaded=false;
 async function loadProjects(){
   const grid=document.getElementById('projects-grid');
   try{
-    const res=await fetch('https://vimeo.com/api/v2/dishahisham/videos.json');
-    if(!res.ok)throw new Error();
-    const videos=await res.json();
+    // Fetch multiple pages to get all videos
+    let allVideos=[];
+    for(let page=1;page<=5;page++){
+      const res=await fetch(`https://vimeo.com/api/v2/dishahisham/videos.json?page=${page}`);
+      if(!res.ok)break;
+      const videos=await res.json();
+      if(!videos||videos.length===0)break;
+      allVideos=[...allVideos,...videos];
+      if(videos.length<20)break; // last page
+    }
+    if(allVideos.length===0)throw new Error();
     grid.innerHTML='';
-    videos.slice(0,12).forEach(v=>{
+    allVideos.forEach(v=>{
       const card=document.createElement('div');
       card.className='project-card';
       const thumb=v.thumbnail_large||v.thumbnail_medium||'';
@@ -563,3 +532,4 @@ switchToPage('home');
 setTimeout(fitHomeSpacing,300);
 window.addEventListener('resize',fitHomeSpacing);
 </script>
+
