@@ -32,6 +32,11 @@
 
   #home{position:relative;height:100svh;max-height:700px;min-height:480px;overflow:hidden;background:#000;cursor:pointer;}
   #home iframe{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:177.78vh;min-width:100%;height:56.25vw;min-height:100%;pointer-events:none;border:none;}
+  #home-video-mobile{display:none;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;}
+  @media(max-width:768px){
+    #home iframe{display:none;}
+    #home-video-mobile{display:block;}
+  }
   .home-overlay{position:absolute;inset:0;background:rgba(0,0,0,0.4);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 24px;}
   .home-name{font-family:'Ogg',serif;font-weight:700;color:var(--white);line-height:1;text-transform:uppercase;transition:opacity 0.4s,transform 0.4s;display:block;text-align:center;width:100%;}
   .home-name.fly-out{opacity:0;transform:translateY(-20px);}
@@ -217,6 +222,7 @@
   <!-- HOME -->
   <div id="home" class="page active" onclick="handleHomeClick()">
     <iframe src="https://player.vimeo.com/video/1180242024?h=edb3da77ce&autoplay=1&loop=1&muted=1&background=1&autopause=0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+    <video id="home-video-mobile" src="https://res.cloudinary.com/da5fz9dxk/video/upload/v1775860174/Website_Vertical_sequence_ygzvlj.mp4" autoplay muted loop playsinline></video>
     <div class="home-overlay">
       <div class="home-name" id="hero-name">DISHA HISHAM</div>
       <div class="home-subtitle" id="hero-subtitle">Cinematographer & Director</div>
@@ -338,7 +344,7 @@
               <button type="submit" class="contact-send">Send</button>
             </form>
           </div>
-          <div class="contact-item"><div class="contact-lbl">Mail</div><a href="Dishahisham@gmail.com" class="contact-val"><span class="__cf_email__" data-cfemail="06426f756e676e6f756e676b46616b676f6a2865696b">Dishahisham@gmail.com</span></a></div>
+          <div class="contact-item"><div class="contact-lbl">Mail</div><a href="mailto:Dishahisham@gmail.com" class="contact-val">Dishahisham@gmail.com</a></div>
           <div class="contact-item"><div class="contact-lbl">Phone</div><a href="tel:+0201112277727" class="contact-val">+020 111 227 7727</a></div>
           <div class="contact-item"><div class="contact-lbl">Vimeo</div><a href="https://vimeo.com/Dishahisham" target="_blank" class="contact-val">Vimeo</a></div>
           <div class="contact-item"><div class="contact-lbl">Instagram</div><a href="https://instagram.com/Dishahisham" target="_blank" class="contact-val">Instagram</a></div>
@@ -352,7 +358,10 @@
     <!-- Clients & Partners -->
     <div style="margin-top:80px;padding:0 0 80px;">
       <div class="section-label">Our Clients &amp; Partners</div>
-      <img src="https://res.cloudinary.com/da5fz9dxk/image/upload/v1775743623/Clients_and_partners_gaz58d.png" alt="Clients and Partners" style="width:100%;display:block;object-fit:contain;background:transparent;" onerror="this.style.background='#1a1a1a'">
+      <div style="position:relative;display:block;">
+        <img src="https://res.cloudinary.com/da5fz9dxk/image/upload/v1775743623/Clients_and_partners_gaz58d.png" alt="Clients and Partners" style="width:100%;display:block;object-fit:contain;background:transparent;" onerror="this.style.background='#1a1a1a'">
+        <div style="position:absolute;inset:0;background:rgba(0,0,0,0.5);pointer-events:none;"></div>
+      </div>
     </div>
   </div>
 
