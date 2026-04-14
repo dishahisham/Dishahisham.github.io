@@ -207,10 +207,12 @@
 
   /* BACK BUTTON + BREADCRUMB */
   .proj-back-row{display:flex;align-items:center;gap:10px;margin-bottom:40px;}
-  .proj-back{font-family:'Inter',sans-serif;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(240,242,245,0.45);cursor:pointer;background:none;border:none;padding:0;transition:color 0.2s;}
+  .proj-back{font-family:'Inter',sans-serif;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(240,242,245,0.42);cursor:pointer;background:none;border:none;padding:0;transition:color 0.2s;}
   .proj-back:hover{color:var(--white);}
-  .proj-breadcrumb-sep{font-size:13px;color:rgba(240,242,245,0.22);line-height:1;}
+  .proj-breadcrumb-sep{font-size:13px;color:rgba(240,242,245,0.22);}
   .proj-breadcrumb-current{font-family:'Inter',sans-serif;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(240,242,245,0.75);}
+  .proj-switch{font-family:'Inter',sans-serif;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(240,242,245,0.38);cursor:pointer;background:none;border:1px solid rgba(240,242,245,0.18);padding:5px 14px;margin-left:auto;transition:all 0.2s;}
+  .proj-switch:hover{color:var(--white);border-color:rgba(240,242,245,0.5);}
 
   @media(max-width:768px){
     .proj-split{grid-template-columns:1fr;padding:0 20px;height:auto;}
@@ -349,6 +351,7 @@
         <button class="proj-back" onclick="showProjSection('landing')">Projects</button>
         <span class="proj-breadcrumb-sep">›</span>
         <span class="proj-breadcrumb-current">Narrative</span>
+        <button class="proj-switch" onclick="showProjSection('commercial')">Commercial →</button>
       </div>
       <p class="narrative-text">Worked across large-scale film productions in high-responsibility environments, contributing to projects that demand precision and strong visual awareness, including Tayea', Blue Elephant II, El Aref, and El Sett — working alongside leading cinematographers and directors, and shaping a strong visual foundation.</p>
       <div class="bts-duo" style="margin-bottom:28px;">
@@ -381,16 +384,17 @@
         <button class="proj-back" onclick="showProjSection('landing')">Projects</button>
         <span class="proj-breadcrumb-sep">›</span>
         <span class="proj-breadcrumb-current">Commercial</span>
+        <button class="proj-switch" onclick="showProjSection('narrative')">← Narrative</button>
       </div>
       <div class="proj-commercial-inner" style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;margin-bottom:48px;">
         <div>
-          <p style="font-family:'Ogg',serif;font-size:clamp(15px,1.5vw,18px);line-height:1.65;color:rgba(240,242,245,0.75);">Delivered commercial work across a wide range of clients and production scales, building a reputation grounded in trust, consistency, and strong visual execution — adapting to fast-paced environments while maintaining a clear creative vision.</p>
+          <p class="narrative-text">Delivered commercial work across a wide range of clients and production scales, building a reputation grounded in trust, consistency, and strong visual execution — adapting to fast-paced environments while maintaining a clear creative vision.</p>
         </div>
         <div>
-          <img src="https://res.cloudinary.com/da5fz9dxk/image/upload/v1775743623/Clients_and_partners_gaz58d.png" alt="Clients and Partners" style="width:100%;display:block;object-fit:contain;max-height:200px;">
+          <img src="https://res.cloudinary.com/da5fz9dxk/image/upload/v1775743623/Clients_and_partners_gaz58d.png" alt="Clients and Partners" style="width:100%;max-width:420px;display:block;object-fit:contain;">
         </div>
       </div>
-      <div style="margin-bottom:20px;">
+      <div style="margin-bottom:20px;margin-top:8px;">
         <div class="section-label">Portfolio</div>
       </div>
       <div class="projects-grid" id="projects-grid">
