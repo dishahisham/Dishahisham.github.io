@@ -206,11 +206,11 @@
   .narrative-text{font-family:'Ogg',serif;font-weight:400;font-size:clamp(15px,1.5vw,19px);line-height:1.6;color:var(--white);margin-bottom:28px;}
 
   /* BACK BUTTON + BREADCRUMB */
-  .proj-back-row{display:flex;align-items:center;gap:12px;margin-bottom:40px;}
-  .proj-back{display:inline-flex;align-items:center;gap:8px;font-family:'Inter',sans-serif;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(240,242,245,0.45);cursor:pointer;background:none;border:none;padding:0;transition:color 0.2s;}
+  .proj-back-row{display:flex;align-items:center;gap:10px;margin-bottom:40px;}
+  .proj-back{font-family:'Inter',sans-serif;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(240,242,245,0.45);cursor:pointer;background:none;border:none;padding:0;transition:color 0.2s;}
   .proj-back:hover{color:var(--white);}
-  .proj-breadcrumb{font-family:'Inter',sans-serif;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(240,242,245,0.22);}
-  .proj-breadcrumb span{color:rgba(240,242,245,0.7);}
+  .proj-breadcrumb-sep{font-size:13px;color:rgba(240,242,245,0.22);line-height:1;}
+  .proj-breadcrumb-current{font-family:'Inter',sans-serif;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(240,242,245,0.75);}
 
   @media(max-width:768px){
     .proj-split{grid-template-columns:1fr;padding:0 20px;height:auto;}
@@ -276,7 +276,7 @@
       <p class="recce-intro">With a strong visual foundation, recce pictures become the starting point of the preparation process — where observations evolve through hand-drawn lighting plans and 2D &amp; 3D illustrations into practical cinematic frames.</p>
       <img src="https://res.cloudinary.com/da5fz9dxk/image/upload/v1776157784/Testmonial_wide_ierjju.jpg" alt="Prince El Kebda" class="recce-full-img" onerror="this.style.background='#1a1a1a';this.style.minHeight='200px'">
       <div class="recce-full-caption">
-        <a href="https://vimeo.com/1143477550?share=copy&fl=sv&fe=ci" target="_blank">Prince El Kebda</a> — Cinematography by Disha Hisham &nbsp;|&nbsp; Colored by Mahmoud Salah &nbsp;|&nbsp; Directed by Youssef Gallab
+        <a href="https://vimeo.com/1143477550?share=copy&fl=sv&fe=ci" target="_blank">Prince El Kebda</a> — Cinematography by Disha Hisham &nbsp;|&nbsp; Directed by Youssef Gallab
       </div>
       <div class="gallery-wrap">
         <div class="gallery-scroll" id="gallery-scroll">
@@ -346,11 +346,9 @@
     <!-- NARRATIVE VIEW -->
     <div id="proj-narrative-view" style="display:none;padding:0 48px;">
       <div class="proj-back-row">
-        <button class="proj-back" onclick="showProjSection('landing')">
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 2L4 7L9 12" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          Back
-        </button>
-        <span class="proj-breadcrumb">Projects &rsaquo; <span>Narrative</span></span>
+        <button class="proj-back" onclick="showProjSection('landing')">Projects</button>
+        <span class="proj-breadcrumb-sep">›</span>
+        <span class="proj-breadcrumb-current">Narrative</span>
       </div>
       <p class="narrative-text">Worked across large-scale film productions in high-responsibility environments, contributing to projects that demand precision and strong visual awareness, including Tayea', Blue Elephant II, El Aref, and El Sett — working alongside leading cinematographers and directors, and shaping a strong visual foundation.</p>
       <div class="bts-duo" style="margin-bottom:28px;">
@@ -380,19 +378,20 @@
     <!-- COMMERCIAL VIEW -->
     <div id="proj-commercial-view" style="display:none;padding:0 48px;">
       <div class="proj-back-row">
-        <button class="proj-back" onclick="showProjSection('landing')">
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 2L4 7L9 12" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          Back
-        </button>
-        <span class="proj-breadcrumb">Projects &rsaquo; <span>Commercial</span></span>
+        <button class="proj-back" onclick="showProjSection('landing')">Projects</button>
+        <span class="proj-breadcrumb-sep">›</span>
+        <span class="proj-breadcrumb-current">Commercial</span>
       </div>
       <div class="proj-commercial-inner" style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;margin-bottom:48px;">
         <div>
           <p style="font-family:'Ogg',serif;font-size:clamp(15px,1.5vw,18px);line-height:1.65;color:rgba(240,242,245,0.75);">Delivered commercial work across a wide range of clients and production scales, building a reputation grounded in trust, consistency, and strong visual execution — adapting to fast-paced environments while maintaining a clear creative vision.</p>
         </div>
         <div>
-          <img src="https://res.cloudinary.com/da5fz9dxk/image/upload/v1775743623/Clients_and_partners_gaz58d.png" alt="Clients and Partners" style="width:100%;display:block;object-fit:contain;filter:grayscale(100%);">
+          <img src="https://res.cloudinary.com/da5fz9dxk/image/upload/v1775743623/Clients_and_partners_gaz58d.png" alt="Clients and Partners" style="width:100%;display:block;object-fit:contain;max-height:200px;">
         </div>
+      </div>
+      <div style="margin-bottom:20px;">
+        <div class="section-label">Portfolio</div>
       </div>
       <div class="projects-grid" id="projects-grid">
         <div style="grid-column:1/-1;text-align:center;padding:60px 0;color:rgba(240,242,245,0.22);font-size:12px;letter-spacing:0.12em;">Loading projects...</div>
