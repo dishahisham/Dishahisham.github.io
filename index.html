@@ -49,7 +49,7 @@
   .section-label{font-size:11px;letter-spacing:0.24em;text-transform:uppercase;color:rgba(240,242,245,0.38);margin-bottom:28px;border-bottom:1px solid rgba(240,242,245,0.08);padding-bottom:12px;}
 
   /* BIO INTRO — image 50% smaller height relative to text col */
-  .bio-intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;}
+  .bio-intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start;}
   .bio-text-block{font-family:'Ogg',serif;font-weight:400;font-size:16px;line-height:1.6;color:rgba(240,242,245,0.88);}
   .bio-img-wrap{display:flex;align-items:flex-start;}
   .bio-intro-img{width:100%;max-height:320px;object-fit:contain;object-position:top;display:block;}
@@ -109,11 +109,9 @@
   .project-card{cursor:pointer;overflow:hidden;}
   .project-thumb-wrap{position:relative;overflow:hidden;}
   .project-card img{width:100%;aspect-ratio:21/9;object-fit:cover;display:block;transition:filter 0.35s;}
-  .project-hover-overlay{position:absolute;inset:0;background:rgba(0,0,0,0);display:flex;align-items:center;justify-content:center;transition:background 0.35s;pointer-events:none;}
-  .project-hover-title{font-family:'Ogg',serif;font-size:15px;color:var(--white);text-align:center;padding:0 12px;opacity:0;transform:translateY(6px);transition:opacity 0.3s,transform 0.3s;}
-  .project-card:hover img{filter:brightness(0.45);}
-  .project-card:hover .project-hover-overlay{background:rgba(0,0,0,0.35);}
-  .project-card:hover .project-hover-title{opacity:1;transform:translateY(0);}
+  .project-hover-overlay{display:none;}
+  .project-card img{filter:brightness(0.72);}
+  .project-card:hover img{filter:brightness(1.05);}
   .loading-thumb{width:100%;aspect-ratio:21/9;background:#151515;display:flex;align-items:center;justify-content:center;}
   .loading-thumb span{font-size:11px;color:rgba(240,242,245,0.22);letter-spacing:0.1em;}
 
@@ -164,6 +162,10 @@
 
   /* MOBILE */
   @media(max-width:768px){
+    .proj-split{grid-template-columns:1fr;height:auto;gap:4px;}
+    .proj-split-card{height:45svh;}
+  }
+  @media(max-width:768px){
     .nav-row{padding:16px 20px;}
     .nav-divider{margin:0 20px;}
     .nav-left a,.nav-right a{display:none;}
@@ -190,6 +192,31 @@
     .projects-grid{grid-template-columns:1fr;}
     .awards-grid{grid-template-columns:1fr 1fr;}
     .gallery-thumb{height:95px;}
+  }
+
+  /* PROJECT LANDING */
+  .proj-intro-text{display:none;}
+  .proj-split{display:grid;grid-template-columns:1fr 1fr;gap:12px;height:calc(100svh - 80px);padding:0 48px;}
+  .proj-split-card{position:relative;overflow:hidden;cursor:pointer;height:100%;}
+  .proj-split-card img{width:100%;height:100%;object-fit:contain;display:block;filter:brightness(0.82);transition:filter 0.4s;}
+  .proj-split-card:hover img{filter:brightness(1.0);}
+  .proj-split-label{display:none;}
+
+  /* NARRATIVE SUB-PAGE */
+  .narrative-text{font-family:'Ogg',serif;font-weight:400;font-size:clamp(15px,1.5vw,19px);line-height:1.6;color:var(--white);margin-bottom:28px;}
+
+  /* BACK BUTTON + BREADCRUMB */
+  .proj-back-row{display:flex;align-items:center;gap:12px;margin-bottom:40px;}
+  .proj-back{display:inline-flex;align-items:center;gap:8px;font-family:'Inter',sans-serif;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(240,242,245,0.45);cursor:pointer;background:none;border:none;padding:0;transition:color 0.2s;}
+  .proj-back:hover{color:var(--white);}
+  .proj-breadcrumb{font-family:'Inter',sans-serif;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(240,242,245,0.22);}
+  .proj-breadcrumb span{color:rgba(240,242,245,0.7);}
+
+  @media(max-width:768px){
+    .proj-split{grid-template-columns:1fr;padding:0 20px;height:auto;}
+    .proj-split-card{height:45svh;}
+    #proj-narrative-view,#proj-commercial-view{padding:0 20px;}
+    .proj-commercial-inner{grid-template-columns:1fr!important;}
   }
 </style>
 
@@ -241,29 +268,7 @@
       </div>
     </div>
 
-    <!-- Film involvement — no divider above -->
-    <div>
-      <p class="production-text">He has been involved in major productions within the cinematography department, including Tayea', Blue Elephant II, El Aref, and El Sett — working alongside leading cinematographers and directors, and shaping a strong visual foundation.</p>
-      <div class="film-cards">
-        <div class="film-card"><img src="https://i.ibb.co/YK6rNWQ/Elsett.jpg" alt="El Sett" onerror="this.style.background='#1a1a1a'"><div class="film-card-caption-title">El Sett</div><div class="film-card-caption-role">Camera Operator</div></div>
-        <div class="film-card"><img src="https://i.ibb.co/8LQTvFFG/Feel-azra2.jpg" alt="Blue Elephant II" onerror="this.style.background='#1a1a1a'"><div class="film-card-caption-title">Blue Elephant II</div><div class="film-card-caption-role">Focus Puller</div></div>
-        <div class="film-card"><img src="https://i.ibb.co/jkW52wyk/el-3aref.jpg" alt="El Aref" onerror="this.style.background='#1a1a1a'"><div class="film-card-caption-title">El Aref</div><div class="film-card-caption-role">Focus Puller</div></div>
-        <div class="film-card"><img src="https://i.ibb.co/xKTfrRh9/Taye3.png" alt="Tayea" onerror="this.style.background='#1a1a1a'"><div class="film-card-caption-title">Tayea'</div><div class="film-card-caption-role">2nd AC — Lighting Script</div></div>
-      </div>
-      <div class="thin-divider"></div>
-      <div class="bts-duo">
-        <div class="bts-item">
-          <img src="https://i.ibb.co/8Dj7D6mg/image0.jpg" alt="El Sett BTS" class="bts-img" onerror="this.style.background='#1a1a1a'">
-          <div class="bts-caption">Moment from "El Sett" movie behind the scenes &nbsp;|&nbsp; DOP: Abdel Salam Moussa &nbsp;|&nbsp; Dir: Marwan Hamed &nbsp;|&nbsp; Captured by Khaled Zohny</div>
-        </div>
-        <div class="bts-item">
-          <img src="https://i.ibb.co/BVWcBNm1/Blue-elephant.png" alt="Blue Elephant BTS" class="bts-img" onerror="this.style.background='#1a1a1a'">
-          <div class="bts-caption">Moment from "Blue Elephant II" movie behind the scenes &nbsp;|&nbsp; DOP: Ahmed Al Morsy &nbsp;|&nbsp; Dir: Marwan Hamed &nbsp;|&nbsp; Captured by Khaled Zohny</div>
-        </div>
-      </div>
-    </div>
 
-    <div class="thin-divider"></div>
 
     <!-- FROM RECCE TO FRAME -->
     <div>
@@ -324,10 +329,76 @@
   </div>
 
   <!-- PROJECTS -->
-  <div id="projects" class="page inner-page" style="padding-top:80px;min-height:100vh;">
-    <div class="projects-grid" id="projects-grid">
-      <div style="grid-column:1/-1;text-align:center;padding:60px 0;color:rgba(240,242,245,0.22);font-size:12px;letter-spacing:0.12em;">Loading projects...</div>
+  <div id="projects" class="page inner-page" style="padding:80px 0 0;min-height:100vh;overflow:hidden;">
+
+    <!-- LANDING VIEW -->
+    <div id="proj-landing-view">
+      <div class="proj-split">
+        <div class="proj-split-card" onclick="showProjSection('narrative')">
+          <img src="https://res.cloudinary.com/da5fz9dxk/image/upload/v1776072143/NARATTIVE_20per_mu26pp.jpg" alt="Narrative">
+        </div>
+        <div class="proj-split-card" onclick="showProjSection('commercial')">
+          <img src="https://res.cloudinary.com/da5fz9dxk/image/upload/v1776072144/COMMERCIAL_20per_vzoyih.jpg" alt="Commercial">
+        </div>
+      </div>
     </div>
+
+    <!-- NARRATIVE VIEW -->
+    <div id="proj-narrative-view" style="display:none;padding:0 48px;">
+      <div class="proj-back-row">
+        <button class="proj-back" onclick="showProjSection('landing')">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 2L4 7L9 12" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Back
+        </button>
+        <span class="proj-breadcrumb">Projects &rsaquo; <span>Narrative</span></span>
+      </div>
+      <p class="narrative-text">Worked across large-scale film productions in high-responsibility environments, contributing to projects that demand precision and strong visual awareness, including Tayea', Blue Elephant II, El Aref, and El Sett — working alongside leading cinematographers and directors, and shaping a strong visual foundation.</p>
+      <div class="bts-duo" style="margin-bottom:28px;">
+        <div class="bts-item">
+          <img src="https://i.ibb.co/8Dj7D6mg/image0.jpg" alt="El Sett BTS" class="bts-img" onerror="this.style.background='#1a1a1a'">
+          <div class="bts-caption">Moment from &ldquo;El Sett&rdquo; movie behind the scenes &nbsp;|&nbsp; DOP: Abdel Salam Moussa &nbsp;|&nbsp; Dir: Marwan Hamed &nbsp;|&nbsp; Captured by Khaled Zohny</div>
+        </div>
+        <div class="bts-item">
+          <img src="https://i.ibb.co/BVWcBNm1/Blue-elephant.png" alt="Blue Elephant BTS" class="bts-img" onerror="this.style.background='#1a1a1a'">
+          <div class="bts-caption">Moment from &ldquo;Blue Elephant II&rdquo; movie behind the scenes &nbsp;|&nbsp; DOP: Ahmed Al Morsy &nbsp;|&nbsp; Dir: Marwan Hamed &nbsp;|&nbsp; Captured by Khaled Zohny</div>
+        </div>
+      </div>
+      <div class="film-cards">
+        <div class="film-card"><img src="https://i.ibb.co/YK6rNWQ/Elsett.jpg" alt="El Sett" onerror="this.style.background='#1a1a1a'"><div class="film-card-caption-title">El Sett</div><div class="film-card-caption-role">Camera Operator</div></div>
+        <div class="film-card"><img src="https://i.ibb.co/8LQTvFFG/Feel-azra2.jpg" alt="Blue Elephant II" onerror="this.style.background='#1a1a1a'"><div class="film-card-caption-title">Blue Elephant II</div><div class="film-card-caption-role">Focus Puller</div></div>
+        <div class="film-card"><img src="https://i.ibb.co/jkW52wyk/el-3aref.jpg" alt="El Aref" onerror="this.style.background='#1a1a1a'"><div class="film-card-caption-title">El Aref</div><div class="film-card-caption-role">Focus Puller</div></div>
+        <div class="film-card"><img src="https://i.ibb.co/xKTfrRh9/Taye3.png" alt="Tayea" onerror="this.style.background='#1a1a1a'"><div class="film-card-caption-title">Tayea&apos;</div><div class="film-card-caption-role">2nd AC &mdash; Lighting Script</div></div>
+        <div class="film-card"><img src="https://i.ibb.co/zhYJXcVy/Poster-FESTIVALS.png" alt="SANTOS" onerror="this.style.background='#1a1a1a'"><div class="film-card-caption-title">SANTOS</div><div class="film-card-caption-role">Director & DOP</div></div>           
+        <div class="film-card"><img src="https://i.ibb.co/8gB7LvXV/Arabic-Poster.jpg" alt="Transit" onerror="this.style.background='#1a1a1a'"><div class="film-card-caption-title">Transit</div><div class="film-card-caption-role">Director & DOP</div></div> 
+        <div class="film-card"><img src="https://i.ibb.co/XZQDT8HH/Movie-poster-finale-Updated.jpg" alt="Abu Judy" onerror="this.style.background='#1a1a1a'"><div class="film-card-caption-title">Abu Judy</div><div class="film-card-caption-role">DOP</div></div>        
+         <div class="film-card"><img src="https://i.ibb.co/TqmMptxM/Cone-Poster.jpg" alt="Cone" onerror="this.style.background='#1a1a1a'"><div class="film-card-caption-title">Cone</div><div class="film-card-caption-role">DOP</div></div>     
+       
+        
+      </div>
+    </div>
+
+    <!-- COMMERCIAL VIEW -->
+    <div id="proj-commercial-view" style="display:none;padding:0 48px;">
+      <div class="proj-back-row">
+        <button class="proj-back" onclick="showProjSection('landing')">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 2L4 7L9 12" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Back
+        </button>
+        <span class="proj-breadcrumb">Projects &rsaquo; <span>Commercial</span></span>
+      </div>
+      <div class="proj-commercial-inner" style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;margin-bottom:48px;">
+        <div>
+          <p style="font-family:'Ogg',serif;font-size:clamp(15px,1.5vw,18px);line-height:1.65;color:rgba(240,242,245,0.75);">Delivered commercial work across a wide range of clients and production scales, building a reputation grounded in trust, consistency, and strong visual execution — adapting to fast-paced environments while maintaining a clear creative vision.</p>
+        </div>
+        <div>
+          <img src="https://res.cloudinary.com/da5fz9dxk/image/upload/v1775743623/Clients_and_partners_gaz58d.png" alt="Clients and Partners" style="width:100%;display:block;object-fit:contain;filter:grayscale(100%);">
+        </div>
+      </div>
+      <div class="projects-grid" id="projects-grid">
+        <div style="grid-column:1/-1;text-align:center;padding:60px 0;color:rgba(240,242,245,0.22);font-size:12px;letter-spacing:0.12em;">Loading projects...</div>
+      </div>
+    </div>
+
   </div>
 
   <!-- CONTACT -->
@@ -356,11 +427,7 @@
       </div>
     </div>
 
-    <!-- Clients & Partners -->
-    <div style="margin-top:80px;padding:0 0 80px;">
-      <div class="section-label">Our Clients &amp; Partners</div>
-      <img src="https://res.cloudinary.com/da5fz9dxk/image/upload/v1775743623/Clients_and_partners_gaz58d.png" alt="Clients and Partners" style="width:100%;display:block;object-fit:contain;background:transparent;filter:grayscale(100%);" onerror="this.style.background='#1a1a1a'">
-    </div>
+
   </div>
 
   <!-- Image Lightbox -->
@@ -492,6 +559,16 @@ document.addEventListener('keydown',e=>{
   }
 });
 
+
+/* PROJECTS SUB-NAVIGATION */
+function showProjSection(section){
+  document.getElementById('proj-landing-view').style.display = section==='landing' ? 'block' : 'none';
+  document.getElementById('proj-narrative-view').style.display = section==='narrative' ? 'block' : 'none';
+  document.getElementById('proj-commercial-view').style.display = section==='commercial' ? 'block' : 'none';
+  if(section==='commercial' && !window.projectsLoaded) loadProjects();
+  window.scrollTo(0,0);
+}
+
 /* NAVIGATION */
 function handleHomeClick(){showPage('projects');}
 let isAnimating=false;
@@ -523,7 +600,7 @@ function switchToPage(id){
   const divider=document.getElementById('nav-divider');
   if(isHome){nav.classList.remove('fixed');nav.style.position='absolute';divider.classList.remove('visible');}
   else{nav.classList.add('fixed');nav.style.position='fixed';divider.classList.add('visible');}
-  if(id==='projects'&&!window.projectsLoaded)loadProjects();
+  if(id==='projects'){showProjSection('landing');}
   window.scrollTo(0,0);
 }
 
