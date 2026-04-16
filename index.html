@@ -45,7 +45,7 @@
   .home-subtitle.fly-out{opacity:0;}
 
   .inner-page{background:var(--black);padding:90px 48px 80px;}
-  .thin-divider{height:1px;background:rgba(240,242,245,0.1);margin:48px 0;}
+  .thin-divider{height:1px;background:rgba(240,242,245,0.1);margin:72px 0;}
   .section-label{font-size:11px;letter-spacing:0.24em;text-transform:uppercase;color:rgba(240,242,245,0.38);margin-bottom:28px;border-bottom:1px solid rgba(240,242,245,0.08);padding-bottom:12px;}
 
   /* BIO INTRO — image 50% smaller height relative to text col */
@@ -196,7 +196,7 @@
 
   /* PROJECT LANDING */
   .proj-intro-text{display:none;}
-  .proj-split{display:grid;grid-template-columns:1fr 1fr;gap:12px;height:calc(100svh - 80px);padding:0 48px;}
+  .proj-split{display:grid;grid-template-columns:1fr 1fr;gap:3px;height:calc(100svh - 80px);padding:0 48px;}
   .proj-split-card{position:relative;overflow:hidden;cursor:pointer;height:100%;}
   .proj-split-card img{width:100%;height:100%;object-fit:contain;display:block;filter:brightness(0.82);transition:filter 0.4s;}
   .proj-split-card:hover img{filter:brightness(1.0);}
@@ -206,13 +206,15 @@
   .narrative-text{font-family:'Ogg',serif;font-weight:400;font-size:clamp(15px,1.5vw,19px);line-height:1.6;color:var(--white);margin-bottom:28px;}
 
   /* BACK BUTTON + BREADCRUMB */
-  .proj-back-row{display:flex;align-items:center;gap:10px;margin-bottom:40px;}
-  .proj-back{font-family:'Inter',sans-serif;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(240,242,245,0.42);cursor:pointer;background:none;border:none;padding:0;transition:color 0.2s;}
+  .proj-back-row{display:flex;align-items:center;gap:12px;margin-bottom:40px;}
+  .proj-back{display:inline-flex;align-items:center;gap:8px;font-family:'Inter',sans-serif;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(240,242,245,0.45);cursor:pointer;background:none;border:none;padding:0;transition:color 0.2s;}
   .proj-back:hover{color:var(--white);}
   .proj-breadcrumb-sep{font-size:13px;color:rgba(240,242,245,0.22);}
   .proj-breadcrumb-current{font-family:'Inter',sans-serif;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(240,242,245,0.75);}
   .proj-switch{font-family:'Inter',sans-serif;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(240,242,245,0.38);cursor:pointer;background:none;border:1px solid rgba(240,242,245,0.18);padding:5px 14px;margin-left:auto;transition:all 0.2s;}
   .proj-switch:hover{color:var(--white);border-color:rgba(240,242,245,0.5);}
+  .proj-breadcrumb{font-family:'Inter',sans-serif;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(240,242,245,0.22);}
+  .proj-breadcrumb span{color:rgba(240,242,245,0.7);}
 
   @media(max-width:768px){
     .proj-split{grid-template-columns:1fr;padding:0 20px;height:auto;}
@@ -230,7 +232,7 @@
           <svg width="15" height="15" viewBox="0 0 17 17" fill="none"><path d="M1.5 7.5L8.5 1.5L15.5 7.5V15.5H11.5V10.5H5.5V15.5H1.5V7.5Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round" fill="none"/></svg>
         </button>
         <a onclick="showPage('bio')" id="nav-bio">About</a>
-        <a onclick="showPage('projects')" id="nav-projects">Projects</a>
+        <a onclick="showPage('projects')" id="nav-projects">Work</a>
       </div>
       <div class="nav-name" id="nav-name" onclick="showPage('home')">DISHA HISHAM</div>
       <div class="nav-right">
@@ -262,8 +264,9 @@
   <!-- ABOUT -->
   <div id="bio" class="page inner-page">
 
-    <!-- Intro: no divider before film section -->
-    <div class="bio-intro-grid" style="margin-bottom:48px;">
+    <!-- BIO INTRO -->
+    <div class="section-label" style="margin-bottom:32px;">Bio</div>
+    <div class="bio-intro-grid" style="margin-bottom:80px;">
       <div class="bio-text-block">Moustafa Hisham (Disha) is an Egyptian cinematographer and director. Beginning in photography at the age of 16, his practice expanded into illustration, graphic design, and 2D motion graphics — forming a layered visual perspective. This foundation led to a focus on cinema, developed through formal education and on-set experience. Work spans TV, documentaries, and commercials, with an emphasis on meaningful, visually expressive storytelling.</div>
       <div class="bio-img-wrap">
         <img src="https://i.ibb.co/tgKz0Qn/UAE-x-CHATGPT-Film-Grain-PP.jpg" alt="Disha Hisham" class="bio-intro-img" onerror="this.style.background='#1a1a1a'">
@@ -348,7 +351,7 @@
     <!-- NARRATIVE VIEW -->
     <div id="proj-narrative-view" style="display:none;padding:0 48px;">
       <div class="proj-back-row">
-        <button class="proj-back" onclick="showProjSection('landing')">Projects</button>
+        <button class="proj-back" onclick="showProjSection('landing')">Work</button>
         <span class="proj-breadcrumb-sep">›</span>
         <span class="proj-breadcrumb-current">Narrative</span>
         <button class="proj-switch" onclick="showProjSection('commercial')">Commercial →</button>
@@ -381,7 +384,7 @@
     <!-- COMMERCIAL VIEW -->
     <div id="proj-commercial-view" style="display:none;padding:0 48px;">
       <div class="proj-back-row">
-        <button class="proj-back" onclick="showProjSection('landing')">Projects</button>
+        <button class="proj-back" onclick="showProjSection('landing')">Work</button>
         <span class="proj-breadcrumb-sep">›</span>
         <span class="proj-breadcrumb-current">Commercial</span>
         <button class="proj-switch" onclick="showProjSection('narrative')">← Narrative</button>
