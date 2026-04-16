@@ -196,7 +196,7 @@
 
   /* PROJECT LANDING */
   .proj-intro-text{display:none;}
-  .proj-split{display:grid;grid-template-columns:1fr 1fr;gap:3px;height:calc(100svh - 80px);padding:0 48px;}
+  .proj-split{display:grid;grid-template-columns:1fr 1fr;gap:12px;height:calc(100svh - 80px);padding:0 48px;}
   .proj-split-card{position:relative;overflow:hidden;cursor:pointer;height:100%;}
   .proj-split-card img{width:100%;height:100%;object-fit:contain;display:block;filter:brightness(0.82);transition:filter 0.4s;}
   .proj-split-card:hover img{filter:brightness(1.0);}
@@ -209,10 +209,6 @@
   .proj-back-row{display:flex;align-items:center;gap:12px;margin-bottom:40px;}
   .proj-back{display:inline-flex;align-items:center;gap:8px;font-family:'Inter',sans-serif;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(240,242,245,0.45);cursor:pointer;background:none;border:none;padding:0;transition:color 0.2s;}
   .proj-back:hover{color:var(--white);}
-  .proj-breadcrumb-sep{font-size:13px;color:rgba(240,242,245,0.22);}
-  .proj-breadcrumb-current{font-family:'Inter',sans-serif;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(240,242,245,0.75);}
-  .proj-switch{font-family:'Inter',sans-serif;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(240,242,245,0.38);cursor:pointer;background:none;border:1px solid rgba(240,242,245,0.18);padding:5px 14px;margin-left:auto;transition:all 0.2s;}
-  .proj-switch:hover{color:var(--white);border-color:rgba(240,242,245,0.5);}
   .proj-breadcrumb{font-family:'Inter',sans-serif;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(240,242,245,0.22);}
   .proj-breadcrumb span{color:rgba(240,242,245,0.7);}
 
@@ -221,6 +217,72 @@
     .proj-split-card{height:45svh;}
     #proj-narrative-view,#proj-commercial-view{padding:0 20px;}
     .proj-commercial-inner{grid-template-columns:1fr!important;}
+  }
+
+  /* PROJECT LANDING */
+  .proj-intro-text{display:none;}
+  .proj-split{display:grid;grid-template-columns:1fr 1fr;gap:3px;height:calc(100svh - 80px);}
+  .proj-split-card{position:relative;overflow:hidden;cursor:pointer;height:100%;}
+  .proj-split-card img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.82);transition:filter 0.4s;}
+  .proj-split-card:hover img{filter:brightness(1.0);}
+  .proj-split-label{display:none;}
+
+  /* BREADCRUMB */
+  .proj-back-row{display:flex;align-items:center;gap:10px;margin-bottom:40px;}
+  .proj-back{font-family:'Inter',sans-serif;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(240,242,245,0.42);cursor:pointer;background:none;border:none;padding:0;transition:color 0.2s;}
+  .proj-back:hover{color:var(--white);}
+  .proj-breadcrumb-sep{font-size:13px;color:rgba(240,242,245,0.22);}
+  .proj-breadcrumb-current{font-family:'Inter',sans-serif;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(240,242,245,0.75);}
+  .proj-switch{font-family:'Inter',sans-serif;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(240,242,245,0.38);cursor:pointer;background:none;border:1px solid rgba(240,242,245,0.18);padding:5px 14px;margin-left:auto;transition:all 0.2s;}
+  .proj-switch:hover{color:var(--white);border-color:rgba(240,242,245,0.5);}
+
+  /* NARRATIVE */
+  .narrative-text{font-family:'Ogg',serif;font-weight:400;font-size:clamp(15px,1.5vw,19px);line-height:1.6;color:var(--white);margin-bottom:28px;}
+
+  /* HOME — showreel button */
+  #home{cursor:default;}
+  #showreel-btn{
+    margin-top:20px;
+    font-family:'Inter',sans-serif;font-weight:300;font-size:11px;
+    letter-spacing:0.18em;text-transform:uppercase;
+    color:rgba(240,242,245,0);
+    border:1px solid rgba(240,242,245,0);
+    border-radius:20px;
+    background:none;cursor:pointer;
+    padding:8px 22px;
+    transition:color 0.4s,border-color 0.4s;
+  }
+  #home:hover #showreel-btn{
+    color:rgba(240,242,245,0.85);
+    border-color:rgba(240,242,245,0.45);
+  }
+  #showreel-btn:hover{
+    color:var(--white)!important;
+    border-color:rgba(240,242,245,0.8)!important;
+  }
+  /* Prevent pointer cursor on home bg but allow on button */
+  .home-overlay{cursor:default;}
+
+  /* CONE LIGHTBOX */
+  .cone-lightbox{position:fixed;inset:0;background:rgba(0,0,0,0.95);display:flex;z-index:1002;opacity:0;pointer-events:none;transition:opacity 0.3s;}
+  .cone-lightbox.open{opacity:1;pointer-events:all;}
+  .cone-lb-gallery{flex:1;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+  .cone-lb-img{max-width:100%;max-height:100vh;object-fit:contain;display:block;}
+  .cone-lb-side{width:280px;flex-shrink:0;padding:60px 32px 32px;display:flex;flex-direction:column;justify-content:center;border-left:0.5px solid rgba(240,242,245,0.08);}
+  .cone-lb-title{font-family:'Ogg',serif;font-size:18px;color:var(--white);margin-bottom:16px;line-height:1.4;}
+  .cone-lb-desc{font-size:12px;color:rgba(240,242,245,0.5);line-height:1.8;letter-spacing:0.04em;}
+  .cone-lb-close{position:absolute;top:20px;right:24px;font-size:26px;color:rgba(240,242,245,0.5);cursor:pointer;background:none;border:none;z-index:3;}
+  .cone-lb-prev,.cone-lb-next{position:absolute;top:50%;transform:translateY(-50%);background:none;border:1px solid rgba(240,242,245,0.2);color:var(--white);width:38px;height:38px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background 0.2s;z-index:2;}
+  .cone-lb-prev{left:16px;}
+  .cone-lb-next{right:16px;}
+  .cone-lb-prev:hover,.cone-lb-next:hover{background:rgba(240,242,245,0.1);}
+  .cone-lb-counter{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);font-size:11px;color:rgba(240,242,245,0.3);letter-spacing:0.12em;}
+  @media(max-width:768px){
+    .proj-split{grid-template-columns:1fr;gap:3px;height:auto;}
+    .proj-split-card{height:45svh;}
+    #proj-narrative-view,#proj-commercial-view{padding:0 20px;}
+    .cone-lightbox{flex-direction:column;}
+    .cone-lb-side{width:100%;padding:20px 24px;border-left:none;border-top:0.5px solid rgba(240,242,245,0.08);}
   }
 </style>
 
@@ -252,19 +314,19 @@
   </div>
 
   <!-- HOME -->
-  <div id="home" class="page active" onclick="handleHomeClick()">
+  <div id="home" class="page active">
     <iframe class="home-iframe-desktop" src="https://player.vimeo.com/video/1180242024?h=edb3da77ce&autoplay=1&loop=1&muted=1&background=1&autopause=0" allow="autoplay; fullscreen" allowfullscreen></iframe>
     <iframe class="home-iframe-mobile" src="https://player.vimeo.com/video/1182170211?h=b6f79ef88c&autoplay=1&loop=1&muted=1&background=1&autopause=0" allow="autoplay; fullscreen" allowfullscreen></iframe>
     <div class="home-overlay">
       <div class="home-name" id="hero-name">DISHA HISHAM</div>
       <div class="home-subtitle" id="hero-subtitle">Cinematographer & Director</div>
+      <button id="showreel-btn" onclick="openShowreel()">Watch Showreel</button>
     </div>
   </div>
 
   <!-- ABOUT -->
   <div id="bio" class="page inner-page">
 
-    <!-- BIO INTRO -->
     <div class="section-label" style="margin-bottom:32px;">Bio</div>
     <div class="bio-intro-grid" style="margin-bottom:80px;">
       <div class="bio-text-block">Moustafa Hisham (Disha) is an Egyptian cinematographer and director. Beginning in photography at the age of 16, his practice expanded into illustration, graphic design, and 2D motion graphics — forming a layered visual perspective. This foundation led to a focus on cinema, developed through formal education and on-set experience. Work spans TV, documentaries, and commercials, with an emphasis on meaningful, visually expressive storytelling.</div>
@@ -375,7 +437,7 @@
         <div class="film-card"><img src="https://i.ibb.co/zhYJXcVy/Poster-FESTIVALS.png" alt="SANTOS" onerror="this.style.background='#1a1a1a'"><div class="film-card-caption-title">SANTOS</div><div class="film-card-caption-role">Director & DOP</div></div>           
         <div class="film-card"><img src="https://i.ibb.co/8gB7LvXV/Arabic-Poster.jpg" alt="Transit" onerror="this.style.background='#1a1a1a'"><div class="film-card-caption-title">Transit</div><div class="film-card-caption-role">Director & DOP</div></div> 
         <div class="film-card"><img src="https://i.ibb.co/XZQDT8HH/Movie-poster-finale-Updated.jpg" alt="Abu Judy" onerror="this.style.background='#1a1a1a'"><div class="film-card-caption-title">Abu Judy</div><div class="film-card-caption-role">DOP</div></div>        
-         <div class="film-card"><img src="https://i.ibb.co/TqmMptxM/Cone-Poster.jpg" alt="Cone" onerror="this.style.background='#1a1a1a'"><div class="film-card-caption-title">Cone</div><div class="film-card-caption-role">DOP</div></div>     
+         <div class="film-card" onclick="openConeLightbox()" style="cursor:pointer;"><img src="https://i.ibb.co/TqmMptxM/Cone-Poster.jpg" alt="Cone" onerror="this.style.background='#1a1a1a'"><div class="film-card-caption-title">Cone</div><div class="film-card-caption-role">DOP</div></div>     
        
         
       </div>
@@ -394,12 +456,10 @@
           <p class="narrative-text">Delivered commercial work across a wide range of clients and production scales, building a reputation grounded in trust, consistency, and strong visual execution — adapting to fast-paced environments while maintaining a clear creative vision.</p>
         </div>
         <div>
-          <img src="https://res.cloudinary.com/da5fz9dxk/image/upload/v1775743623/Clients_and_partners_gaz58d.png" alt="Clients and Partners" style="width:100%;max-width:420px;display:block;object-fit:contain;">
+          <img src="https://res.cloudinary.com/da5fz9dxk/image/upload/v1775743623/Clients_and_partners_gaz58d.png" alt="Clients and Partners" style="width:70%;display:block;object-fit:contain;">
         </div>
       </div>
-      <div style="margin-bottom:20px;margin-top:8px;">
-        <div class="section-label">Portfolio</div>
-      </div>
+      <div style="margin-bottom:20px;margin-top:8px;"><div class="section-label">Portfolio</div></div>
       <div class="projects-grid" id="projects-grid">
         <div style="grid-column:1/-1;text-align:center;padding:60px 0;color:rgba(240,242,245,0.22);font-size:12px;letter-spacing:0.12em;">Loading projects...</div>
       </div>
@@ -436,6 +496,30 @@
 
   </div>
 
+
+  <!-- Cone Lightbox -->
+  <div class="cone-lightbox" id="cone-lightbox" onclick="if(event.target===this)closeConeLightbox()">
+    <div class="cone-lb-gallery">
+      <button class="cone-lb-close" onclick="closeConeLightbox()">×</button>
+      <button class="cone-lb-prev" onclick="conePrev()"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M9 2L4 7L9 12" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <img class="cone-lb-img" id="cone-lb-img" src="" alt="">
+      <button class="cone-lb-next" onclick="coneNext()"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M5 2L10 7L5 12" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <div class="cone-lb-counter" id="cone-lb-counter"></div>
+    </div>
+    <div class="cone-lb-side">
+      <div class="cone-lb-title">Cone</div>
+      <div class="cone-lb-desc">After a rivalry ignited with the street&#39;s garage worker over his power on the street, a professor&#39;s ideals are put into question when his life turns into madness.<br><br>Cone<br>Directed by Mark Ayman</div>
+    </div>
+  </div>
+
+
+  <!-- Showreel Lightbox -->
+  <div id="showreel-lightbox" style="position:fixed;inset:0;background:rgba(0,0,0,0.95);display:flex;align-items:center;justify-content:center;z-index:1001;opacity:0;pointer-events:none;transition:opacity 0.3s;">
+    <div style="width:85%;max-width:960px;position:relative;">
+      <button onclick="closeShowreel()" style="position:absolute;top:-44px;right:0;font-size:28px;color:rgba(240,242,245,0.6);background:none;border:none;cursor:pointer;font-weight:300;">×</button>
+      <iframe id="showreel-iframe" src="" style="width:100%;aspect-ratio:16/9;border:none;display:block;" allow="autoplay; fullscreen" allowfullscreen></iframe>
+    </div>
+  </div>
   <!-- Image Lightbox -->
   <div class="img-lightbox" id="img-lightbox" onclick="if(event.target===this)closeImgLightbox()">
     <div class="img-lb-stage">
@@ -467,6 +551,49 @@
 </div>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+
+/* CONE LIGHTBOX */
+const coneImages=[
+  "https://res.cloudinary.com/da5fz9dxk/image/upload/v1776342511/C_1.1.21_uo4tdy.jpg",
+  "https://res.cloudinary.com/da5fz9dxk/image/upload/v1776342511/C_1.1.18_zjhfl2.jpg",
+  "https://res.cloudinary.com/da5fz9dxk/image/upload/v1776342510/C_1.1.2_mkstb3.jpg",
+  "https://res.cloudinary.com/da5fz9dxk/image/upload/v1776342509/C_1.1.24_gj6zv3.jpg",
+  "https://res.cloudinary.com/da5fz9dxk/image/upload/v1776342508/C_1.1.22_b9nlko.jpg",
+  "https://res.cloudinary.com/da5fz9dxk/image/upload/v1776342507/C_1.1.11_olg64l.jpg",
+  "https://res.cloudinary.com/da5fz9dxk/image/upload/v1776342506/C_1.1.8_wydws0.jpg",
+  "https://res.cloudinary.com/da5fz9dxk/image/upload/v1776342503/C_1.1.10_brzxhe.jpg",
+  "https://res.cloudinary.com/da5fz9dxk/image/upload/v1776342503/C_1.1.12_vagvx1.jpg",
+  "https://res.cloudinary.com/da5fz9dxk/image/upload/v1776342501/C_1.1.6_xh7q78.jpg",
+  "https://res.cloudinary.com/da5fz9dxk/image/upload/v1776342501/C_1.1.3_bi54la.jpg",
+  "https://res.cloudinary.com/da5fz9dxk/image/upload/v1776342501/C_1.1.7_aiznxd.jpg",
+  "https://res.cloudinary.com/da5fz9dxk/image/upload/v1776342500/C_1.1.1_qvbak9.jpg",
+  "https://res.cloudinary.com/da5fz9dxk/image/upload/v1776342500/C_1.1.17_yl6a0b.jpg"
+];
+let coneIdx=0;
+function openConeLightbox(){coneIdx=0;updateConeImg();document.getElementById('cone-lightbox').classList.add('open');}
+function closeConeLightbox(){document.getElementById('cone-lightbox').classList.remove('open');}
+function conePrev(){coneIdx=(coneIdx-1+coneImages.length)%coneImages.length;updateConeImg();}
+function coneNext(){coneIdx=(coneIdx+1)%coneImages.length;updateConeImg();}
+function updateConeImg(){
+  document.getElementById('cone-lb-img').src=coneImages[coneIdx];
+  document.getElementById('cone-lb-counter').textContent=(coneIdx+1)+' / '+coneImages.length;
+}
+document.getElementById('cone-lb-img').addEventListener('click',coneNext);
+
+/* SHOWREEL */
+function openShowreel(){
+  const lb=document.getElementById('showreel-lightbox');
+  document.getElementById('showreel-iframe').src='https://player.vimeo.com/video/1180242024?h=edb3da77ce&autoplay=1';
+  lb.style.opacity='1';lb.style.pointerEvents='all';
+}
+function closeShowreel(){
+  const lb=document.getElementById('showreel-lightbox');
+  lb.style.opacity='0';lb.style.pointerEvents='none';
+  document.getElementById('showreel-iframe').src='';
+}
+document.getElementById('showreel-lightbox').addEventListener('click',function(e){if(e.target===this)closeShowreel();});
+
+
 /* HOME TYPOGRAPHY */
 function fitHomeSpacing(){
   const nameEl=document.getElementById('hero-name');
@@ -558,7 +685,8 @@ function closeMobileMenu(){document.getElementById('mobile-menu').classList.remo
 
 /* KEYBOARD */
 document.addEventListener('keydown',e=>{
-  if(e.key==='Escape'){closeAwardBtn();closeVideoBtn();closeImgLightbox();}
+  if(e.key==='Escape'){closeAwardBtn();closeVideoBtn();closeImgLightbox();closeConeLightbox();closeShowreel();}
+  if(document.getElementById('cone-lightbox').classList.contains('open')){if(e.key==='ArrowLeft')conePrev();if(e.key==='ArrowRight')coneNext();}
   if(document.getElementById('img-lightbox').classList.contains('open')){
     if(e.key==='ArrowLeft')shiftImg(-1);
     if(e.key==='ArrowRight')shiftImg(1);
@@ -576,7 +704,7 @@ function showProjSection(section){
 }
 
 /* NAVIGATION */
-function handleHomeClick(){showPage('projects');}
+
 let isAnimating=false;
 function showPage(id){
   if(id==='home'){goHome();return;}
