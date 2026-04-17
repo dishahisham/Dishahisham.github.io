@@ -221,9 +221,9 @@
 
   /* PROJECT LANDING */
   .proj-intro-text{display:none;}
-  .proj-split{display:grid;grid-template-columns:1fr 1fr;gap:3px;height:calc(100svh - 80px);}
-  .proj-split-card{position:relative;overflow:hidden;cursor:pointer;height:100%;}
-  .proj-split-card img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.82);transition:filter 0.4s;}
+  .proj-split{display:grid;grid-template-columns:1fr 1fr;gap:16px;height:calc(100svh - 80px);align-items:center;padding:0 48px;background:var(--black);}
+  .proj-split-card{position:relative;overflow:hidden;cursor:pointer;height:100%;display:flex;align-items:center;justify-content:center;}
+  .proj-split-card img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;display:block;filter:brightness(0.82);transition:filter 0.4s;}
   .proj-split-card:hover img{filter:brightness(1.0);}
   .proj-split-label{display:none;}
 
@@ -239,7 +239,7 @@
   /* NARRATIVE */
   .narrative-text{font-family:'Ogg',serif;font-weight:400;font-size:clamp(15px,1.5vw,19px);line-height:1.6;color:var(--white);margin-bottom:28px;}
 
-  /* HOME — showreel button */
+  /* HOME showreel button */
   #home{cursor:default;}
   #showreel-btn{
     margin-top:20px;
@@ -252,22 +252,15 @@
     padding:8px 22px;
     transition:color 0.4s,border-color 0.4s;
   }
-  #home:hover #showreel-btn{
-    color:rgba(240,242,245,0.85);
-    border-color:rgba(240,242,245,0.45);
-  }
-  #showreel-btn:hover{
-    color:var(--white)!important;
-    border-color:rgba(240,242,245,0.8)!important;
-  }
-  /* Prevent pointer cursor on home bg but allow on button */
+  #home:hover #showreel-btn{color:rgba(240,242,245,0.85);border-color:rgba(240,242,245,0.45);}
+  #showreel-btn:hover{color:var(--white)!important;border-color:rgba(240,242,245,0.8)!important;}
   .home-overlay{cursor:default;}
 
   /* CONE LIGHTBOX */
   .cone-lightbox{position:fixed;inset:0;background:rgba(0,0,0,0.95);display:flex;z-index:1002;opacity:0;pointer-events:none;transition:opacity 0.3s;}
   .cone-lightbox.open{opacity:1;pointer-events:all;}
   .cone-lb-gallery{flex:1;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
-  .cone-lb-img{max-width:100%;max-height:100vh;object-fit:contain;display:block;}
+  .cone-lb-img{max-width:100%;max-height:100vh;object-fit:contain;display:block;cursor:pointer;}
   .cone-lb-side{width:280px;flex-shrink:0;padding:60px 32px 32px;display:flex;flex-direction:column;justify-content:center;border-left:0.5px solid rgba(240,242,245,0.08);}
   .cone-lb-title{font-family:'Ogg',serif;font-size:18px;color:var(--white);margin-bottom:16px;line-height:1.4;}
   .cone-lb-desc{font-size:12px;color:rgba(240,242,245,0.5);line-height:1.8;letter-spacing:0.04em;}
@@ -277,9 +270,10 @@
   .cone-lb-next{right:16px;}
   .cone-lb-prev:hover,.cone-lb-next:hover{background:rgba(240,242,245,0.1);}
   .cone-lb-counter{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);font-size:11px;color:rgba(240,242,245,0.3);letter-spacing:0.12em;}
+
   @media(max-width:768px){
-    .proj-split{grid-template-columns:1fr;gap:3px;height:auto;}
-    .proj-split-card{height:45svh;}
+    .proj-split{grid-template-columns:1fr;gap:8px;height:auto;padding:0 20px;}
+    .proj-split-card{height:40svh;}
     #proj-narrative-view,#proj-commercial-view{padding:0 20px;}
     .cone-lightbox{flex-direction:column;}
     .cone-lb-side{width:100%;padding:20px 24px;border-left:none;border-top:0.5px solid rgba(240,242,245,0.08);}
@@ -339,12 +333,13 @@
 
     <!-- FROM RECCE TO FRAME -->
     <div>
-      <div class="section-label">From Recce to Frame</div>
+      <div class="section-label">Approach</div>
       <p class="recce-intro">With a strong visual foundation, recce pictures become the starting point of the preparation process — where observations evolve through hand-drawn lighting plans and 2D &amp; 3D illustrations into practical cinematic frames.</p>
       <img src="https://res.cloudinary.com/da5fz9dxk/image/upload/v1776157784/Testmonial_wide_ierjju.jpg" alt="Prince El Kebda" class="recce-full-img" onerror="this.style.background='#1a1a1a';this.style.minHeight='200px'">
       <div class="recce-full-caption">
         <a href="https://vimeo.com/1143477550?share=copy&fl=sv&fe=ci" target="_blank">Prince El Kebda</a> — Cinematography by Disha Hisham &nbsp;|&nbsp; Directed by Youssef Gallab
       </div>
+      <div class="section-label" style="margin-top:32px;">From Recce to Frame</div>
       <div class="gallery-wrap">
         <div class="gallery-scroll" id="gallery-scroll">
           <div class="gallery-thumb" onclick="openImgLightbox(0)"><img src="https://res.cloudinary.com/da5fz9dxk/image/upload/v1775619926/1_scj1by.jpg" alt="1"></div>
@@ -502,7 +497,7 @@
     <div class="cone-lb-gallery">
       <button class="cone-lb-close" onclick="closeConeLightbox()">×</button>
       <button class="cone-lb-prev" onclick="conePrev()"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M9 2L4 7L9 12" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-      <img class="cone-lb-img" id="cone-lb-img" src="" alt="">
+      <img class="cone-lb-img" id="cone-lb-img" src="" alt="" onclick="coneNext()">
       <button class="cone-lb-next" onclick="coneNext()"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M5 2L10 7L5 12" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
       <div class="cone-lb-counter" id="cone-lb-counter"></div>
     </div>
@@ -512,7 +507,6 @@
     </div>
   </div>
 
-
   <!-- Showreel Lightbox -->
   <div id="showreel-lightbox" style="position:fixed;inset:0;background:rgba(0,0,0,0.95);display:flex;align-items:center;justify-content:center;z-index:1001;opacity:0;pointer-events:none;transition:opacity 0.3s;">
     <div style="width:85%;max-width:960px;position:relative;">
@@ -520,6 +514,7 @@
       <iframe id="showreel-iframe" src="" style="width:100%;aspect-ratio:16/9;border:none;display:block;" allow="autoplay; fullscreen" allowfullscreen></iframe>
     </div>
   </div>
+
   <!-- Image Lightbox -->
   <div class="img-lightbox" id="img-lightbox" onclick="if(event.target===this)closeImgLightbox()">
     <div class="img-lb-stage">
@@ -578,12 +573,11 @@ function updateConeImg(){
   document.getElementById('cone-lb-img').src=coneImages[coneIdx];
   document.getElementById('cone-lb-counter').textContent=(coneIdx+1)+' / '+coneImages.length;
 }
-document.getElementById('cone-lb-img').addEventListener('click',coneNext);
 
 /* SHOWREEL */
 function openShowreel(){
   const lb=document.getElementById('showreel-lightbox');
-  document.getElementById('showreel-iframe').src='https://player.vimeo.com/video/1180242024?h=edb3da77ce&autoplay=1';
+  document.getElementById('showreel-iframe').src='https://player.vimeo.com/video/1183913547?h=7fb604b0e0&autoplay=1';
   lb.style.opacity='1';lb.style.pointerEvents='all';
 }
 function closeShowreel(){
@@ -593,6 +587,14 @@ function closeShowreel(){
 }
 document.getElementById('showreel-lightbox').addEventListener('click',function(e){if(e.target===this)closeShowreel();});
 
+/* PROJECTS SUB-NAVIGATION */
+function showProjSection(section){
+  document.getElementById('proj-landing-view').style.display=section==='landing'?'block':'none';
+  document.getElementById('proj-narrative-view').style.display=section==='narrative'?'block':'none';
+  document.getElementById('proj-commercial-view').style.display=section==='commercial'?'block':'none';
+  if(section==='commercial'&&!window.projectsLoaded)loadProjects();
+  window.scrollTo(0,0);
+}
 
 /* HOME TYPOGRAPHY */
 function fitHomeSpacing(){
