@@ -162,8 +162,8 @@
 
   /* MOBILE */
   @media(max-width:768px){
-    .proj-split{grid-template-columns:1fr;height:auto;gap:4px;}
-    .proj-split-card{height:45svh;}
+    .proj-split{grid-template-columns:1fr!important;gap:6px!important;height:auto!important;padding:0 20px!important;}
+    .proj-split-card{height:42svh!important;}
   }
   @media(max-width:768px){
     .nav-row{padding:16px 20px;}
@@ -196,9 +196,9 @@
 
   /* PROJECT LANDING */
   .proj-intro-text{display:none;}
-  .proj-split{display:grid;grid-template-columns:1fr 1fr;gap:12px;height:calc(100svh - 80px);padding:0 48px;}
-  .proj-split-card{position:relative;overflow:hidden;cursor:pointer;height:100%;}
-  .proj-split-card img{width:100%;height:100%;object-fit:contain;display:block;filter:brightness(0.82);transition:filter 0.4s;}
+  .proj-split{display:grid;grid-template-columns:1fr 1fr;gap:8px;height:calc(100svh - 80px);align-items:center;padding:0 48px;background:var(--black);}
+  .proj-split-card{position:relative;overflow:hidden;cursor:pointer;height:100%;display:flex;align-items:center;justify-content:center;}
+  .proj-split-card img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;display:block;filter:brightness(0.82);transition:filter 0.4s;}
   .proj-split-card:hover img{filter:brightness(1.0);}
   .proj-split-label{display:none;}
 
@@ -213,8 +213,8 @@
   .proj-breadcrumb span{color:rgba(240,242,245,0.7);}
 
   @media(max-width:768px){
-    .proj-split{grid-template-columns:1fr;padding:0 20px;height:auto;}
-    .proj-split-card{height:45svh;}
+    .proj-split{grid-template-columns:1fr!important;gap:6px!important;height:auto!important;padding:0 20px!important;}
+    .proj-split-card{height:42svh!important;}
     #proj-narrative-view,#proj-commercial-view{padding:0 20px;}
     .proj-commercial-inner{grid-template-columns:1fr!important;}
   }
@@ -272,8 +272,8 @@
   .cone-lb-counter{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);font-size:11px;color:rgba(240,242,245,0.3);letter-spacing:0.12em;}
 
   @media(max-width:768px){
-    .proj-split{grid-template-columns:1fr;gap:8px;height:auto;padding:0 20px;}
-    .proj-split-card{height:40svh;}
+    .proj-split{grid-template-columns:1fr!important;gap:6px!important;height:auto!important;padding:0 20px!important;}
+    .proj-split-card{height:42svh!important;}
     #proj-narrative-view,#proj-commercial-view{padding:0 20px;}
     .cone-lightbox{flex-direction:column;}
     .cone-lb-side{width:100%;padding:20px 24px;border-left:none;border-top:0.5px solid rgba(240,242,245,0.08);}
@@ -424,6 +424,7 @@
           <div class="bts-caption">Moment from &ldquo;Blue Elephant II&rdquo; movie behind the scenes &nbsp;|&nbsp; DOP: Ahmed Al Morsy &nbsp;|&nbsp; Dir: Marwan Hamed &nbsp;|&nbsp; Captured by Khaled Zohny</div>
         </div>
       </div>
+      <div style="margin-top:56px;margin-bottom:24px;"><div class="section-label">Featured Projects</div></div>
       <div class="film-cards">
         <div class="film-card"><img src="https://i.ibb.co/YK6rNWQ/Elsett.jpg" alt="El Sett" onerror="this.style.background='#1a1a1a'"><div class="film-card-caption-title">El Sett</div><div class="film-card-caption-role">Camera Operator</div></div>
         <div class="film-card"><img src="https://i.ibb.co/8LQTvFFG/Feel-azra2.jpg" alt="Blue Elephant II" onerror="this.style.background='#1a1a1a'"><div class="film-card-caption-title">Blue Elephant II</div><div class="film-card-caption-role">Focus Puller</div></div>
