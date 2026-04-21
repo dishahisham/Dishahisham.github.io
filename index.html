@@ -761,7 +761,7 @@ async function loadProjects(){
       const card=document.createElement('div');
       card.className='project-card'+(i>=12?' hidden':'');
       const thumb=v.thumbnail_large||v.thumbnail_medium||'';
-      card.innerHTML=`<div class="project-thumb-wrap"><img src="${thumb}" alt="${v.title}" onerror="this.outerHTML='<div class=loading-thumb><span>No Preview</span></div>'"><div class="project-hover-overlay"></div></div><div class="film-card-caption-role" style="margin-top:8px;padding:0;letter-spacing:0.08em;font-size:10px;">${v.title}</div>`;
+      card.innerHTML=`<div class="project-thumb-wrap"><img src="${thumb}" alt="${v.title}" onerror="this.outerHTML='<div class=loading-thumb><span>No Preview</span></div>'"><div class="project-hover-overlay"><div class="project-hover-title">${v.title}</div></div></div>`;
       card.addEventListener('click',()=>openVideo(v.id));
       grid.appendChild(card);
     });
@@ -786,48 +786,5 @@ async function loadProjects(){
 }
 switchToPage('home');
 setTimeout(fitHomeSpacing,300);
-setTimeout(fitHomeSpacing,900);
-if(document.fonts&&document.fonts.ready){document.fonts.ready.then(fitHomeSpacing);}
 window.addEventListener('resize',fitHomeSpacing);
-
-/* ── URL ROUTING ── */
-const ROUTES = {
-  '/'                : function(){ goHome(); },
-  '/about'           : function(){ _switchPage('bio'); },
-  '/work'            : function(){ _switchPage('projects'); showProjSection('landing'); },
-  '/work/narrative'  : function(){ _switchPage('projects'); showProjSection('narrative'); },
-  '/work/commercial' : function(){ _switchPage('projects'); showProjSection('commercial'); },
-  '/contact'         : function(){ _switchPage('contact'); },
-};
-
-function _switchPage(id){ switchToPage(id); }
-
-function navigate(path){
-  history.pushState({path:path},'',path);
-  var h=ROUTES[path.toLowerCase()]||ROUTES['/'];
-  h();
-}
-
-var _origShowProjSection=showProjSection;
-function showProjSection(section){
-  _origShowProjSection(section);
-  var map={landing:'/work',narrative:'/work/narrative',commercial:'/work/commercial'};
-  var p=map[section]||'/work';
-  if(location.pathname!==p)history.replaceState({path:p},'',p);
-}
-
-window.addEventListener('popstate',function(e){
-  var path=(e.state&&e.state.path)||location.pathname;
-  var h=ROUTES[path.toLowerCase()]||ROUTES['/'];
-  h();
-});
-
-(function(){
-  var path=location.pathname.replace(/\/+$/,'')||'/';
-  var h=ROUTES[path.toLowerCase()];
-  if(h){h();}else{goHome();}
-  setTimeout(fitHomeSpacing,200);
-  if(document.fonts&&document.fonts.ready){document.fonts.ready.then(fitHomeSpacing);}
-})();
-
 </script>
