@@ -221,7 +221,6 @@
 
   /* PROJECT LANDING */
   .proj-intro-text{display:none;}
-  .proj-split{display:grid;grid-template-columns:1fr 1fr;gap:16px;height:calc(100svh - 80px);align-items:center;padding:0 48px;background:var(--black);}
   .proj-split-card{position:relative;overflow:hidden;cursor:pointer;height:100%;display:flex;align-items:center;justify-content:center;}
   .proj-split-card img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;display:block;filter:brightness(0.82);transition:filter 0.4s;}
   .proj-split-card:hover img{filter:brightness(1.0);}
@@ -761,7 +760,7 @@ async function loadProjects(){
       const card=document.createElement('div');
       card.className='project-card'+(i>=12?' hidden':'');
       const thumb=v.thumbnail_large||v.thumbnail_medium||'';
-      card.innerHTML=`<div class="project-thumb-wrap"><img src="${thumb}" alt="${v.title}" onerror="this.outerHTML='<div class=loading-thumb><span>No Preview</span></div>'"><div class="project-hover-overlay"><div class="project-hover-title">${v.title}</div></div></div>`;
+      card.innerHTML=`<div class="project-thumb-wrap"><img src="${thumb}" alt="${v.title}" onerror="this.outerHTML='<div class=loading-thumb><span>No Preview</span></div>'"><div class="project-hover-overlay"></div></div><div class="film-card-caption-role" style="margin-top:8px;padding:0;letter-spacing:0.08em;">${v.title}</div>`;
       card.addEventListener('click',()=>openVideo(v.id));
       grid.appendChild(card);
     });
@@ -787,4 +786,54 @@ async function loadProjects(){
 switchToPage('home');
 setTimeout(fitHomeSpacing,300);
 window.addEventListener('resize',fitHomeSpacing);
+
+/* ── URL ROUTING ── */
+const ROUTES = {
+  '/'         : () => switchToPage('home'),
+  '/about'    : () => switchToPage('bio'),
+  '/work'     : () => { switchToPage('projects'); showProjSection('landing'); },
+  '/work/narrative'  : () => { switchToPage('projects'); showProjSection('narrative'); },
+  '/work/commercial' : () => { switchToPage('projects'); showProjSection('commercial'); },
+  '/contact'  : () => switchToPage('contact'),
+};
+
+function navigate(path, push=true) {
+  if (push) history.pushState({path}, '', path);
+  const handler = ROUTES[path.toLowerCase()] || ROUTES['/'];
+  handler();
+}
+
+// Patch showPage to update URL
+const _origSwitchToPage = switchToPage;
+function switchToPage(id) {
+  _origSwitchToPage(id);
+  const map = { home:'/', bio:'/about', projects:'/work', contact:'/contact' };
+  const path = map[id] || '/';
+  if (location.pathname !== path) history.replaceState({path}, '', path);
+}
+
+// Patch showProjSection to update URL
+const _origShowProjSection = showProjSection;
+function showProjSection(section) {
+  _origShowProjSection(section);
+  const map = { landing:'/work', narrative:'/work/narrative', commercial:'/work/commercial' };
+  const path = map[section] || '/work';
+  if (location.pathname !== path) history.replaceState({path}, '', path);
+}
+
+// Back/forward browser navigation
+window.addEventListener('popstate', (e) => {
+  const path = e.state?.path || location.pathname;
+  const handler = ROUTES[path.toLowerCase()] || ROUTES['/'];
+  handler();
+});
+
+// On load — route to current URL
+(function() {
+  const path = location.pathname.replace(/\/+$/, '') || '/';
+  const handler = ROUTES[path.toLowerCase()];
+  if (handler) { handler(); }
+  else { switchToPage('home'); }
+})();
+
 </script>
