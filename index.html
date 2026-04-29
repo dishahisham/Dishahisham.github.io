@@ -776,8 +776,36 @@ function switchToPage(id){
   if(isHome){nav.classList.remove('fixed');nav.style.position='absolute';divider.classList.remove('visible');}
   else{nav.classList.add('fixed');nav.style.position='fixed';divider.classList.add('visible');}
   if(id==='projects'){showProjSection('landing');}
+  // Update URL hash so pages are shareable
+  history.replaceState(null,null,isHome?window.location.pathname+'#home':'#'+id);
   window.scrollTo(0,0);
 }
+
+// Read hash on load and navigate to the right page
+(function(){
+  const hash=window.location.hash.replace('#','');
+  const valid=['home','bio','projects','contact'];
+  if(hash&&valid.includes(hash)){
+    if(hash==='home'){switchToPage('home');}
+    else{
+      document.getElementById('nav-name').classList.add('visible');
+      switchToPage(hash);
+    }
+  }else{switchToPage('home');}
+})();
+
+// Handle browser back/forward buttons
+window.addEventListener('hashchange',()=>{
+  const hash=window.location.hash.replace('#','');
+  const valid=['home','bio','projects','contact'];
+  if(hash&&valid.includes(hash)){
+    if(hash==='home'){goHome();}
+    else{
+      document.getElementById('nav-name').classList.add('visible');
+      switchToPage(hash);
+    }
+  }
+});
 
 /* PROJECTS — 12 first, see more button for rest */
 window.projectsLoaded=false;
@@ -822,7 +850,6 @@ async function loadProjects(){
     grid.innerHTML=`<div style="grid-column:1/-1;text-align:center;padding:60px 0;color:rgba(240,242,245,0.22);font-size:12px;letter-spacing:0.12em;">Connect your Vimeo Access Token to load projects.</div>`;
   }
 }
-switchToPage('home');
 setTimeout(fitHomeSpacing,300);
 window.addEventListener('resize',fitHomeSpacing);
 </script>
