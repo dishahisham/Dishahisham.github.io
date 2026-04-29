@@ -64,7 +64,7 @@
 
   .bts-duo{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
   .bts-item{display:flex;flex-direction:column;}
-  .bts-img{width:100%;object-fit:contain;display:block;background:#0f0f0f;}
+  .bts-img{width:100%;object-fit:contain;display:block;background:#0f0f0f;filter:grayscale(100%);}
   .bts-caption{font-size:10px;color:rgba(240,242,245,0.28);letter-spacing:0.06em;margin-top:10px;line-height:1.6;}
 
   .recce-intro{font-family:'Ogg',serif;font-size:clamp(14px,1.4vw,17px);line-height:1.65;color:rgba(240,242,245,0.78);margin-bottom:24px;}
@@ -432,7 +432,7 @@
         <div class="film-card"><img src="https://i.ibb.co/xKTfrRh9/Taye3.png" alt="Tayea" onerror="this.style.background='#1a1a1a'"><div class="film-card-caption-title">Tayea&apos;</div><div class="film-card-caption-role">2nd AC &mdash; Lighting Script</div></div>
         <div class="film-card"><img src="https://i.ibb.co/zhYJXcVy/Poster-FESTIVALS.png" alt="SANTOS" onerror="this.style.background='#1a1a1a'"><div class="film-card-caption-title">SANTOS</div><div class="film-card-caption-role">Director & DOP</div></div>           
         <div class="film-card"><img src="https://i.ibb.co/8gB7LvXV/Arabic-Poster.jpg" alt="Transit" onerror="this.style.background='#1a1a1a'"><div class="film-card-caption-title">Transit</div><div class="film-card-caption-role">Director & DOP</div></div> 
-        <div class="film-card"><img src="https://i.ibb.co/XZQDT8HH/Movie-poster-finale-Updated.jpg" alt="Abu Judy" onerror="this.style.background='#1a1a1a'"><div class="film-card-caption-title">Abu Judy</div><div class="film-card-caption-role">DOP</div></div>        
+        <div class="film-card" onclick="openAbuJudyLightbox()" style="cursor:pointer;"><img src="https://i.ibb.co/XZQDT8HH/Movie-poster-finale-Updated.jpg" alt="Abu Judy" onerror="this.style.background='#1a1a1a'"><div class="film-card-caption-title">Abu Judy</div><div class="film-card-caption-role">DOP</div></div>        
          <div class="film-card" onclick="openConeLightbox()" style="cursor:pointer;"><img src="https://i.ibb.co/TqmMptxM/Cone-Poster.jpg" alt="Cone" onerror="this.style.background='#1a1a1a'"><div class="film-card-caption-title">Cone</div><div class="film-card-caption-role">DOP</div></div>     
        
         
@@ -504,7 +504,22 @@
     </div>
     <div class="cone-lb-side">
       <div class="cone-lb-title">Cone</div>
-      <div class="cone-lb-desc">After a rivalry ignited with the street&#39;s garage worker over his power on the street, a professor&#39;s ideals are put into question when his life turns into madness.<br><br>Cone<br>Directed by Mark Ayman</div>
+      <div class="cone-lb-desc">After a rivalry ignited with the street&#39;s garage worker over his power on the street, a professor&#39;s ideals are put into question when his life turns into madness.<br><br>Directed by Mark Ayman</div>
+    </div>
+  </div>
+
+  <!-- Abu Judy Lightbox -->
+  <div class="cone-lightbox" id="abujudy-lightbox" onclick="if(event.target===this)closeAbuJudyLightbox()">
+    <div class="cone-lb-gallery">
+      <button class="cone-lb-close" onclick="closeAbuJudyLightbox()">×</button>
+      <button class="cone-lb-prev" onclick="abuJudyPrev()"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M9 2L4 7L9 12" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <img class="cone-lb-img" id="abujudy-lb-img" src="" alt="" onclick="abuJudyNext()">
+      <button class="cone-lb-next" onclick="abuJudyNext()"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M5 2L10 7L5 12" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <div class="cone-lb-counter" id="abujudy-lb-counter"></div>
+    </div>
+    <div class="cone-lb-side">
+      <div class="cone-lb-title">Abu Judy</div>
+      <div class="cone-lb-desc">Judy a young girl spends a day with her estranged father, only to slowly realize that his world is far darker and more dangerous than she can understand.<br><br>Directed by Adel Yehia</div>
     </div>
   </div>
 
@@ -573,6 +588,28 @@ function coneNext(){coneIdx=(coneIdx+1)%coneImages.length;updateConeImg();}
 function updateConeImg(){
   document.getElementById('cone-lb-img').src=coneImages[coneIdx];
   document.getElementById('cone-lb-counter').textContent=(coneIdx+1)+' / '+coneImages.length;
+}
+
+/* ABU JUDY LIGHTBOX */
+const abuJudyImages=[
+  "https://res.cloudinary.com/da5fz9dxk/image/upload/v1777501624/Untitled_1.1.1_tn5pco.jpg",
+  "https://res.cloudinary.com/da5fz9dxk/image/upload/v1777501624/Untitled_1.1.3_tnyksa.jpg",
+  "https://res.cloudinary.com/da5fz9dxk/image/upload/v1777501624/Untitled_1.5.4_tsmugj.jpg",
+  "https://res.cloudinary.com/da5fz9dxk/image/upload/v1777501626/Untitled_1.2.3_b9c6nr.jpg",
+  "https://res.cloudinary.com/da5fz9dxk/image/upload/v1777501626/Untitled_1.1.4_mgv0t8.jpg",
+  "https://res.cloudinary.com/da5fz9dxk/image/upload/v1777501627/Untitled_1.5.1_qjamzt.jpg",
+  "https://res.cloudinary.com/da5fz9dxk/image/upload/v1777501627/Untitled_1.1.6_fldyyx.jpg",
+  "https://res.cloudinary.com/da5fz9dxk/image/upload/v1777501628/Untitled_1.5.7_oviini.jpg",
+  "https://res.cloudinary.com/da5fz9dxk/image/upload/v1777501628/Untitled_1.5.5_naks0w.jpg"
+];
+let abuJudyIdx=0;
+function openAbuJudyLightbox(){abuJudyIdx=0;updateAbuJudyImg();document.getElementById('abujudy-lightbox').classList.add('open');}
+function closeAbuJudyLightbox(){document.getElementById('abujudy-lightbox').classList.remove('open');}
+function abuJudyPrev(){abuJudyIdx=(abuJudyIdx-1+abuJudyImages.length)%abuJudyImages.length;updateAbuJudyImg();}
+function abuJudyNext(){abuJudyIdx=(abuJudyIdx+1)%abuJudyImages.length;updateAbuJudyImg();}
+function updateAbuJudyImg(){
+  document.getElementById('abujudy-lb-img').src=abuJudyImages[abuJudyIdx];
+  document.getElementById('abujudy-lb-counter').textContent=(abuJudyIdx+1)+' / '+abuJudyImages.length;
 }
 
 /* SHOWREEL */
@@ -688,8 +725,9 @@ function closeMobileMenu(){document.getElementById('mobile-menu').classList.remo
 
 /* KEYBOARD */
 document.addEventListener('keydown',e=>{
-  if(e.key==='Escape'){closeAwardBtn();closeVideoBtn();closeImgLightbox();closeConeLightbox();closeShowreel();}
+  if(e.key==='Escape'){closeAwardBtn();closeVideoBtn();closeImgLightbox();closeConeLightbox();closeShowreel();closeAbuJudyLightbox();}
   if(document.getElementById('cone-lightbox').classList.contains('open')){if(e.key==='ArrowLeft')conePrev();if(e.key==='ArrowRight')coneNext();}
+  if(document.getElementById('abujudy-lightbox').classList.contains('open')){if(e.key==='ArrowLeft')abuJudyPrev();if(e.key==='ArrowRight')abuJudyNext();}
   if(document.getElementById('img-lightbox').classList.contains('open')){
     if(e.key==='ArrowLeft')shiftImg(-1);
     if(e.key==='ArrowRight')shiftImg(1);
