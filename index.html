@@ -433,7 +433,8 @@
         <div class="film-card"><img src="https://i.ibb.co/zhYJXcVy/Poster-FESTIVALS.png" alt="SANTOS" onerror="this.style.background='#1a1a1a'"><div class="film-card-caption-title">SANTOS</div><div class="film-card-caption-role">Director & DOP</div></div>           
         <div class="film-card"><img src="https://i.ibb.co/8gB7LvXV/Arabic-Poster.jpg" alt="Transit" onerror="this.style.background='#1a1a1a'"><div class="film-card-caption-title">Transit</div><div class="film-card-caption-role">Director & DOP</div></div> 
         <div class="film-card" onclick="openAbuJudyLightbox()" style="cursor:pointer;"><img src="https://i.ibb.co/XZQDT8HH/Movie-poster-finale-Updated.jpg" alt="Abu Judy" onerror="this.style.background='#1a1a1a'"><div class="film-card-caption-title">Abu Judy</div><div class="film-card-caption-role">DOP</div></div>        
-         <div class="film-card" onclick="openConeLightbox()" style="cursor:pointer;"><img src="https://i.ibb.co/TqmMptxM/Cone-Poster.jpg" alt="Cone" onerror="this.style.background='#1a1a1a'"><div class="film-card-caption-title">Cone</div><div class="film-card-caption-role">DOP</div></div>     
+         <div class="film-card" onclick="openConeLightbox()" style="cursor:pointer;"><img src="https://i.ibb.co/TqmMptxM/Cone-Poster.jpg" alt="Cone" onerror="this.style.background='#1a1a1a'"><div class="film-card-caption-title">Cone</div><div class="film-card-caption-role">DOP</div></div>
+        <div class="film-card" onclick="openMabyenfa3shLightbox()" style="cursor:pointer;"><img src="https://res.cloudinary.com/da5fz9dxk/image/upload/v1791039756/Unofficial_poster_rm1nyj.png" alt="Mabyenfa3sh Ma3ah Seyana" onerror="this.style.background='#1a1a1a'"><div class="film-card-caption-title">Mabyenfa3sh Ma3ah Seyana</div><div class="film-card-caption-role">DOP</div></div>     
        
         
       </div>
@@ -520,6 +521,21 @@
     <div class="cone-lb-side">
       <div class="cone-lb-title">Abu Judy</div>
       <div class="cone-lb-desc">Judy a young girl spends a day with her estranged father, only to slowly realize that his world is far darker and more dangerous than she can understand.<br><br>Directed by Adel Yehia</div>
+    </div>
+  </div>
+
+  <!-- Mabyenfa3sh Lightbox -->
+  <div class="cone-lightbox" id="mabyenfa3sh-lightbox" onclick="if(event.target===this)closeMabyenfa3shLightbox()">
+    <div class="cone-lb-gallery">
+      <button class="cone-lb-close" onclick="closeMabyenfa3shLightbox()">×</button>
+      <button class="cone-lb-prev" onclick="mabyenfa3shPrev()"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M9 2L4 7L9 12" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <img class="cone-lb-img" id="mabyenfa3sh-lb-img" src="" alt="" onclick="mabyenfa3shNext()">
+      <button class="cone-lb-next" onclick="mabyenfa3shNext()"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M5 2L10 7L5 12" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <div class="cone-lb-counter" id="mabyenfa3sh-lb-counter"></div>
+    </div>
+    <div class="cone-lb-side">
+      <div class="cone-lb-title">Mabyenfa3sh Ma3ah Seyana</div>
+      <div class="cone-lb-desc">Two people.<br>An elevator.<br>And something neither of them wants to talk about.<br><br>The elevator…isn't moving,<br>And whatever is keeping it stuck…<br>isn't something maintenance can fix.<br><br>Directed by Hitham Hagar</div>
     </div>
   </div>
 
@@ -725,15 +741,45 @@ function closeMobileMenu(){document.getElementById('mobile-menu').classList.remo
 
 /* KEYBOARD */
 document.addEventListener('keydown',e=>{
-  if(e.key==='Escape'){closeAwardBtn();closeVideoBtn();closeImgLightbox();closeConeLightbox();closeShowreel();closeAbuJudyLightbox();}
+  if(e.key==='Escape'){closeAwardBtn();closeVideoBtn();closeImgLightbox();closeConeLightbox();closeShowreel();closeAbuJudyLightbox();closeMabyenfa3shLightbox();}
   if(document.getElementById('cone-lightbox').classList.contains('open')){if(e.key==='ArrowLeft')conePrev();if(e.key==='ArrowRight')coneNext();}
   if(document.getElementById('abujudy-lightbox').classList.contains('open')){if(e.key==='ArrowLeft')abuJudyPrev();if(e.key==='ArrowRight')abuJudyNext();}
+  if(document.getElementById('mabyenfa3sh-lightbox').classList.contains('open')){if(e.key==='ArrowLeft')mabyenfa3shPrev();if(e.key==='ArrowRight')mabyenfa3shNext();}
   if(document.getElementById('img-lightbox').classList.contains('open')){
     if(e.key==='ArrowLeft')shiftImg(-1);
     if(e.key==='ArrowRight')shiftImg(1);
   }
 });
 
+
+/* MABYENFA3SH LIGHTBOX */
+const mabyenfa3shImages=[
+  "https://res.cloudinary.com/da5fz9dxk/image/upload/v1791038246/Untitled_1.1.10_myvirf.png",
+  "https://res.cloudinary.com/da5fz9dxk/image/upload/v1791038237/Untitled_1.1.9_maag2i.png",
+  "https://res.cloudinary.com/da5fz9dxk/image/upload/v1791038234/Untitled_1.1.6_nimby5.png",
+  "https://res.cloudinary.com/da5fz9dxk/image/upload/v1791038232/Untitled_1.1.16_p9ookm.png",
+  "https://res.cloudinary.com/da5fz9dxk/image/upload/v1791038231/Untitled_1.1.18_gvymkz.png",
+  "https://res.cloudinary.com/da5fz9dxk/image/upload/v1791038229/Untitled_1.1.19_jwodfr.png",
+  "https://res.cloudinary.com/da5fz9dxk/image/upload/v1791038227/Untitled_1.1.1_npwsbm.png",
+  "https://res.cloudinary.com/da5fz9dxk/image/upload/v1791038226/Untitled_1.1.17_dgu2ao.png",
+  "https://res.cloudinary.com/da5fz9dxk/image/upload/v1791038222/Untitled_1.1.15_mkn1ty.png",
+  "https://res.cloudinary.com/da5fz9dxk/image/upload/v1791038222/Untitled_1.1.4_eqyb55.png",
+  "https://res.cloudinary.com/da5fz9dxk/image/upload/v1791038221/baye3_1.1.3_aoucmu.png",
+  "https://res.cloudinary.com/da5fz9dxk/image/upload/v1791038215/ok_1.1.2_f3xlvm.png",
+  "https://res.cloudinary.com/da5fz9dxk/image/upload/v1791038215/Untitled_1.1.11_utttmm.png",
+  "https://res.cloudinary.com/da5fz9dxk/image/upload/v1791038215/Untitled_1.1.12_cfmkfh.png",
+  "https://res.cloudinary.com/da5fz9dxk/image/upload/v1791038214/Untitled_1.1.14_ppowlc.png",
+  "https://res.cloudinary.com/da5fz9dxk/image/upload/v1791038213/Untitled_1.1.3_qkren1.png"
+];
+let mabyenfa3shIdx=0;
+function openMabyenfa3shLightbox(){mabyenfa3shIdx=0;updateMabyenfa3shImg();document.getElementById('mabyenfa3sh-lightbox').classList.add('open');}
+function closeMabyenfa3shLightbox(){document.getElementById('mabyenfa3sh-lightbox').classList.remove('open');}
+function mabyenfa3shPrev(){mabyenfa3shIdx=(mabyenfa3shIdx-1+mabyenfa3shImages.length)%mabyenfa3shImages.length;updateMabyenfa3shImg();}
+function mabyenfa3shNext(){mabyenfa3shIdx=(mabyenfa3shIdx+1)%mabyenfa3shImages.length;updateMabyenfa3shImg();}
+function updateMabyenfa3shImg(){
+  document.getElementById('mabyenfa3sh-lb-img').src=mabyenfa3shImages[mabyenfa3shIdx];
+  document.getElementById('mabyenfa3sh-lb-counter').textContent=(mabyenfa3shIdx+1)+' / '+mabyenfa3shImages.length;
+}
 
 /* PROJECTS SUB-NAVIGATION */
 function showProjSection(section){
